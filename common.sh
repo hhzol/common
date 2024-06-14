@@ -1,6 +1,6 @@
 #!/bin/bash
 # https://github.com/281677160/build-actions
-# common Module by 28677160
+# common Module by 281677160
 # matrix.target=${FOLDER_NAME}
 
 ACTIONS_VERSION="1.0.7"
@@ -26,7 +26,7 @@ Compte=$(date +%Y年%m月%d号%H时%M分)
 
 function settings_variable() {
 cd ${GITHUB_WORKSPACE}
-bash <(curl -fsSL https://raw.githubusercontent.com/281677160/common/cheshi/custom/first.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/hhzol/common/cheshi/custom/first.sh)
 }
 
 function Diy_variable() {
