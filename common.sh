@@ -509,6 +509,10 @@ TIME r ""
 
 
 function Diy_zdypartsh() {
+#onecloud内核
+rm -rf ${HOME_PATH}/target/linux/amlogic
+cp -rf ${HOME_PATH}/feeds/danshui2/OneCloud/6.6/amlogic ${HOME_PATH}/target/linux
+echo "复制onecloud 6.6内核成功！"
 cd ${HOME_PATH}
 # 运行第二个自定义文件
 ./scripts/feeds update -a
