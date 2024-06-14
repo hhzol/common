@@ -462,7 +462,7 @@ if [[ -f "${HOME_PATH}/feeds/luci/modules/luci-mod-system/root/usr/share/luci/me
     [[ ! -d "${HOME_PATH}/feeds/luci/libs/luci-lib-base" ]] && sed -i "s/+luci-lib-base //g" ${HOME_PATH}/package/default-settings/Makefile
   fi
 else
-  echo "src-git danshui2 https://github.com/hhzol/openwrt-package.git;Theme1" >> "feeds.conf.default"
+  echo "src-git danshui2 https://github.com/zhtcl/openwrt-package.git;Theme1" >> "feeds.conf.default"
   if [[ `find "${HOME_PATH}/package" -type d -name "default-settings" |grep -c "default-settings"` -eq '0' ]]; then
     cp -Rf ${HOME_PATH}/build/common/Share/default-settings1 ${HOME_PATH}/package/default-settings
   fi
