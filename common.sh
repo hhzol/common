@@ -405,7 +405,7 @@ git pull
 
 # 这里增加了源,要对应的删除/etc/opkg/distfeeds.conf插件源
 cat >>"feeds.conf.default" <<-EOF
-src-git danshui1 https://github.com/hhzol/openwrt-package.git;${SOURCE}
+# src-git danshui1 https://github.com/hhzol/openwrt-package.git;${SOURCE}
 src-git helloworld https://github.com/fw876/helloworld.git
 src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main
 src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main"
