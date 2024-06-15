@@ -342,7 +342,10 @@ for x in ${t[@]}; do \
 done
 #删除luci/themes多余的主题
 rm -rf ${HOME_PATH}/feeds/luci/themes/{luci-theme-argon-mod,luci-theme-argon,luci-theme-design,luci-theme-material,luci-theme-netgear}
-
+#复制onecloud内核
+rm -rf ${HOME_PATH}/target/linux/amlogic
+cp -rf ${HOME_PATH}/feeds/danshui2/OneCloud/6.6/amlogic ${HOME_PATH}/target/linux
+echo "复制onecloud内核成功！"
 case "${SOURCE_CODE}" in
 COOLSNOWWOLF)
   s="mentohust"
