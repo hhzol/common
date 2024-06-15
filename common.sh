@@ -338,8 +338,10 @@ luci-app-gost,gost,luci-app-smartdns,smartdns,luci-app-wizard,luci-app-msd_lite,
 luci-app-ssr-plus,*luci-app-passwall*,luci-app-vssr,lua-maxminddb,v2dat,v2ray-geodata"
 t=(${z//,/ })
 for x in ${t[@]}; do \
-  find . -type d -name "${x}" |grep -v 'danshui\|freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
+  find danshui1 -type d -name "${x}" |xargs -i rm -rf {}; \
 done
+#删除luci/themes多余的主题
+rm -rf ${HOME_PATH}/feeds/luci/themes/{luci-theme-argon-mod,luci-theme-argon,luci-theme-design,luci-theme-material,luci-theme-netgear}
 
 case "${SOURCE_CODE}" in
 COOLSNOWWOLF)
