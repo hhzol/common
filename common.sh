@@ -789,9 +789,6 @@ fi
 
 
 function Diy_zdypartsh() {
-#删除asterisk
-rm -rf ${HOME_PATH}/package/feeds/telephony/asterisk*
-echo "asterisk已删除"
 cd ${HOME_PATH}
 source $BUILD_PATH/$DIY_PART_SH
 cd ${HOME_PATH}
@@ -1146,6 +1143,9 @@ fi
 
 
 function Diy_feeds() {
+#删除asterisk
+rm -rf ${HOME_PATH}/package/feeds/telephony/asterisk*
+echo "asterisk已删除"
 echo "正在执行：安装feeds,请耐心等待..."
 cd ${HOME_PATH}
 ./scripts/feeds install -f
