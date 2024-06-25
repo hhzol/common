@@ -840,9 +840,6 @@ fi
 
 
 function Diy_Publicarea() {
-#删除asterisk
-rm -rf ${HOME_PATH}/package/feeds/telephony/asterisk
-echo "asterisk已删除"
 cd ${HOME_PATH}
 # Diy_zdypartsh的延伸
 rm -rf ${HOME_PATH}/CHONGTU && touch ${HOME_PATH}/CHONGTU
@@ -1146,6 +1143,9 @@ fi
 
 
 function Diy_feeds() {
+#删除asterisk
+rm -rf ${HOME_PATH}/package/feeds/telephony/asterisk
+echo "asterisk已删除"
 echo "正在执行：安装feeds,请耐心等待..."
 cd ${HOME_PATH}
 ./scripts/feeds install -f
@@ -1154,6 +1154,10 @@ if [[ ! -f "${HOME_PATH}/staging_dir/host/bin/upx" ]]; then
   cp -Rf /usr/bin/upx ${HOME_PATH}/staging_dir/host/bin/upx
   cp -Rf /usr/bin/upx-ucl ${HOME_PATH}/staging_dir/host/bin/upx-ucl
 fi
+#删除asterisk
+rm -rf ${HOME_PATH}/package/feeds/telephony/asterisk
+echo "asterisk已删除"
+
 }
 
 
