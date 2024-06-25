@@ -348,6 +348,10 @@ rm -rf ${HOME_PATH}/feeds/danshui2/{luci-app-advancedplus,luci-app-argon-config,
 echo "二、删除theme1中多余的主题和插件..."
 echo "theme1保留的主题有：luci-theme-argon,luci-theme-Butterfly,luci-theme-Butterfly-dark,luci-theme-Light,luci-theme-argon-dark-mod,luci-theme-argon-light-mod,luci-theme-bootstrap-mod"
 
+#删除asterisk
+rm -rf ${HOME_PATH}/feeds/telephony/asterisk
+echo "asterisk已删除"
+
 #onecloud
 rm -rf ${HOME_PATH}/target/linux/amlogic
 cp -rf ${HOME_PATH}/build/common/Share/OneCloud/6.6/amlogic ${HOME_PATH}/target/linux
