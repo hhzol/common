@@ -841,7 +841,7 @@ fi
 
 function Diy_Publicarea() {
 #删除asterisk
-rm -rf ${HOME_PATH}/package/feeds/telephony/{asterisk}
+rm -rf ${HOME_PATH}/package/feeds/telephony/asterisk
 echo "asterisk已删除"
 cd ${HOME_PATH}
 # Diy_zdypartsh的延伸
