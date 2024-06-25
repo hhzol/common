@@ -420,8 +420,6 @@ IMMORTALWRT)
   done
   rm -rf ${HOME_PATH}/feeds/packages/libs/pcre
   cp -Rf ${HOME_PATH}/build/common/Share/pcre ${HOME_PATH}/feeds/packages/libs/pcre
-  rm -rf ${HOME_PATH}/feeds/packages/libs/libjwt
-  cp -Rf ${HOME_PATH}/build/common/Share/libjwt ${HOME_PATH}/feeds/packages/libs/libjwt
 ;;
 OFFICIAL)
   s="luci-app-wrtbwmon,wrtbwmon,luci-app-dockerman,docker,dockerd,bcm27xx-userland,luci-app-aliyundrive-webdav,aliyundrive-webdav,aliyundrive-fuse"
