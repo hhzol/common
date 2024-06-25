@@ -350,7 +350,7 @@ echo "theme1保留的主题有：luci-theme-argon,luci-theme-Butterfly,luci-them
 
 #onecloud
 rm -rf ${HOME_PATH}/target/linux/amlogic
-cp -rf ${HOME_PATH}/build/common/Share/OneCloud/6.6/amlogic ${HOME_PATH}/target/linux
+cp -rf ${HOME_PATH}/build/common/Share/OneCloud/6.1/amlogic ${HOME_PATH}/target/linux
 echo "onecloud添加内核成功！"
 
 case "${SOURCE_CODE}" in
@@ -414,8 +414,6 @@ IMMORTALWRT)
   for i in ${c[@]}; do \
     find . -type d -name "${i}" |grep -v 'danshui\|freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
   done
-  rm -rf ${HOME_PATH}/feeds/packages/lang/ruby
-  cp -Rf ${HOME_PATH}/build/common/Share/ruby ${HOME_PATH}/feeds/packages/lang/ruby
   rm -rf ${HOME_PATH}/feeds/packages/libs/pcre
   cp -Rf ${HOME_PATH}/build/common/Share/pcre ${HOME_PATH}/feeds/packages/libs/pcre
 ;;
