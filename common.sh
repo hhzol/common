@@ -310,7 +310,7 @@ mv -f uniq.conf feeds.conf.default
 
 # 这里增加了源,要对应的删除/etc/opkg/distfeeds.conf插件源
 cat >>"feeds.conf.default" <<-EOF
-src-git smpackage https://github.com/kenzok8/openwrt-packages;master
+#src-git smpackage https://github.com/kenzok8/openwrt-packages;master
 #src-git danshui1 https://github.com/281677160/openwrt-package.git;${SOURCE}
 src-git helloworld https://github.com/fw876/helloworld.git
 src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main
@@ -414,8 +414,6 @@ IMMORTALWRT)
   for i in ${c[@]}; do \
     find . -type d -name "${i}" |grep -v 'danshui\|freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
   done
-  rm -rf ${HOME_PATH}/feeds/packages/lang/ruby
-  cp -Rf ${HOME_PATH}/build/common/Share/ruby ${HOME_PATH}/feeds/packages/lang/ruby
   rm -rf ${HOME_PATH}/feeds/packages/libs/pcre
   cp -Rf ${HOME_PATH}/build/common/Share/pcre ${HOME_PATH}/feeds/packages/libs/pcre
 ;;
