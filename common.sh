@@ -414,6 +414,8 @@ IMMORTALWRT)
   for i in ${c[@]}; do \
     find . -type d -name "${i}" |grep -v 'danshui\|freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
   done
+  rm -rf ${HOME_PATH}/feeds/packages/lang/ruby
+  cp -Rf ${HOME_PATH}/build/common/Share/ruby ${HOME_PATH}/feeds/packages/lang/ruby
   rm -rf ${HOME_PATH}/feeds/packages/libs/pcre
   cp -Rf ${HOME_PATH}/build/common/Share/pcre ${HOME_PATH}/feeds/packages/libs/pcre
 ;;
