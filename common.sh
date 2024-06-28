@@ -677,7 +677,7 @@ if [ -n "$(ls -A "${BUILD_PATH}/files" 2>/dev/null)" ]; then
   [[ -d "${HOME_PATH}/files" ]] && rm -rf ${HOME_PATH}/files
   cp -Rf ${BUILD_PATH}/files ${HOME_PATH}/files
 fi
-
+echo "ok"
 # 定时更新固件的插件包
 #if [[ "${UPDATE_FIRMWARE_ONLINE}" == "true" ]]; then
 #  source ${BUILD_PATH}/upgrade.sh && Diy_Part1
