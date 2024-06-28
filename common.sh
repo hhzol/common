@@ -742,10 +742,10 @@ fi
 function Diy_IMMORTALWRT() {
 cd ${HOME_PATH}
 if [[ "${REPO_BRANCH}" =~ (openwrt-18.06|openwrt-18.06-k5.4|openwrt-21.02) ]]; then
-  if [[ -d "${HOME_PATH}/build/common/Share/v2raya" ]]; then
-    rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
-    cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
-  fi
+#  if [[ -d "${HOME_PATH}/build/common/Share/v2raya" ]]; then
+#    rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
+#    cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
+#  fi
   # 降低shadowsocks-rust版本,最新版本编译不成功
   if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocks-rust" ]]; then
     curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/281677160/common/main/Share/shadowsocks-rust/Makefile
