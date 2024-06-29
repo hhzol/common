@@ -530,8 +530,6 @@ cp -Rf ${HOME_PATH}/feeds.conf.default ${HOME_PATH}/LICENSES/doc/uniq.conf
 function Diy_Wenjian() {
 cp -Rf ${HOME_PATH}/LICENSES/doc/uniq.conf ${HOME_PATH}/feeds.conf.default
 
-sed -i "s/+libpcre //g" ${HOME_PATH}/package/feeds/telephony/freeswitch/Makefile
-
 # 增加中文语言包
 if [[ -f "${HOME_PATH}/feeds/luci/modules/luci-mod-system/root/usr/share/luci/menu.d/luci-mod-system.json" ]]; then
   LUCI_BANBEN="2"
@@ -1150,6 +1148,7 @@ function Diy_feeds() {
 rm -rf ${HOME_PATH}/package/feeds/telephony/asterisk*
 echo "asterisk已删除"
 echo "正在执行：安装feeds,请耐心等待..."
+sed -i "s/+libpcre //g" ${HOME_PATH}/package/feeds/telephony/freeswitch/Makefile
 cd ${HOME_PATH}
 ./scripts/feeds install -f
 
