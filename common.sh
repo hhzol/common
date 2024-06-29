@@ -773,8 +773,8 @@ cd ${HOME_PATH}
 
 function Diy_OFFICIAL() {
 # 升级node版本
-  rm -rf ${HOME_PATH}/feeds/packages/lang/node
-  git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-22.03 ${HOME_PATH}/feeds/packages/lang/node
+#  rm -rf ${HOME_PATH}/feeds/packages/lang/node
+#  git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-22.03 ${HOME_PATH}/feeds/packages/lang/node
 cd ${HOME_PATH}
 if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02) ]]; then
   if [[ -d "${HOME_PATH}/build/common/Share/v2raya" ]]; then
