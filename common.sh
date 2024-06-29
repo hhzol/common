@@ -538,7 +538,7 @@ else
   LUCI_BANBEN="1"
   echo "LUCI_BANBEN=${LUCI_BANBEN}" >> $GITHUB_ENV
 fi
-echo "ok3"
+
 Settings_path="$(find "${HOME_PATH}/package" -type d -name "default-settings")"
 if [[ -z "${Settings_path}" ]] && [[ "${LUCI_BANBEN}" == "2" ]]; then
   cp -Rf ${HOME_PATH}/build/common/Share/default-settings2 ${HOME_PATH}/package/default-settings
@@ -616,7 +616,7 @@ cat >>"${KEEPD_PATH}" <<-EOF
 /etc/smartdns/custom.conf
 EOF
 fi
-echo "ok2"
+
 # 修改一些依赖
 case "${SOURCE_CODE}" in
 XWRT|OFFICIAL)
@@ -650,7 +650,7 @@ XWRT|OFFICIAL)
   fi
 ;;
 esac
-echo "ok1"
+
 source ${HOME_PATH}/build/common/Share/19.07/netsupport.sh
 
 [[ -d "${HOME_PATH}/build/common/Share/luci-app-samba4" ]] && rm -rf ${HOME_PATH}/build/common/Share/luci-app-samba4
@@ -665,7 +665,7 @@ else
     fi
   done
 fi
-
+echo "ok1"
 # files大法，设置固件无烦恼
 if [ -n "$(ls -A "${BUILD_PATH}/patches" 2>/dev/null)" ]; then
   find "${BUILD_PATH}/patches" -type f -name '*.patch' -print0 | sort -z | xargs -I % -t -0 -n 1 sh -c "cat '%'  | patch -d './' -p1 --forward --no-backup-if-mismatch"
