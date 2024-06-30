@@ -311,12 +311,12 @@ mv -f uniq.conf feeds.conf.default
 # 这里增加了源,要对应的删除/etc/opkg/distfeeds.conf插件源
 cat >>"feeds.conf.default" <<-EOF
 #src-git smpackage https://github.com/kenzok8/openwrt-packages;master
-#src-git danshui1 https://github.com/281677160/openwrt-package.git;${SOURCE}
+src-git danshui1 https://github.com/281677160/openwrt-package.git;${SOURCE}
 #src-git helloworld https://github.com/fw876/helloworld.git
 src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main
 #src-git cdnspeedtest1 https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest;main
 #src-git cdnspeedtest https://github.com/immortalwrt-collections/openwrt-cdnspeedtest.git;master
-src-git danshui2 https://github.com/281677160/openwrt-package.git;Theme2
+src-git danshui2 https://github.com/281677160/openwrt-package.git;Theme1
 EOF
 ./scripts/feeds update -a
 
@@ -782,7 +782,7 @@ if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02) ]]; then
     cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
   fi
 fi
-if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02|openwrt-22.03) ]]; then
+if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02|openwrt-22.03|master) ]]; then
   if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocksr-libev" ]]; then
     curl -o ${HOME_PATH}/feeds/passwall3/shadowsocksr-libev/Makefile https://raw.githubusercontent.com/281677160/common/main/Share/shadowsocksr-libev/Makefile
   fi
