@@ -13,7 +13,6 @@ sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build
 sudo apt-get install -y rename pigz libfuse-dev upx subversion clang
 sudo apt-get install -y $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt)
 sudo apt-get install -y pcre
-sudo apt-get install -y nodejs
 }
 
 function update_apt_source(){
