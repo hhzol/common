@@ -316,7 +316,7 @@ src-git danshui1 https://github.com/281677160/openwrt-package.git;${SOURCE}
 src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main
 #src-git cdnspeedtest1 https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest;main
 #src-git cdnspeedtest https://github.com/immortalwrt-collections/openwrt-cdnspeedtest.git;master
-src-git danshui2 https://github.com/281677160/openwrt-package.git;Theme1
+src-git danshui2 https://github.com/281677160/openwrt-package.git;Theme2
 EOF
 ./scripts/feeds update -a
 
@@ -510,10 +510,10 @@ git clone https://github.com/sbwml/packages_lang_golang -b 22.x ${HOME_PATH}/fee
 # 更换luci-theme-argon
 #rm -rf ${HOME_PATH}/feeds/danshui2/luci-theme-argon
 #git clone https://github.com/jerrykuku/luci-theme-argon -b master ${HOME_PATH}/feeds/danshui2/luci-theme-argon
-#if [[ -d "${HOME_PATH}/build/common/Share/shadowsocks-libev" ]]; then
-#rm -rf ${HOME_PATH}/feeds/packages/net/shadowsocks-libev
-#cp -Rf ${HOME_PATH}/build/common/Share/shadowsocks-libev ${HOME_PATH}/feeds/packages/net/shadowsocks-libev
-#fi
+if [[ -d "${HOME_PATH}/build/common/Share/shadowsocks-libev" ]]; then
+rm -rf ${HOME_PATH}/feeds/packages/net/shadowsocks-libev
+cp -Rf ${HOME_PATH}/build/common/Share/shadowsocks-libev ${HOME_PATH}/feeds/packages/net/shadowsocks-libev
+fi
 #if [[ -d "${HOME_PATH}/feeds/danshui1/relevance/kcptun" ]]; then
 #  rm -rf ${HOME_PATH}/feeds/packages/net/kcptun
 #  mv -f ${HOME_PATH}/feeds/danshui1/relevance/kcptun ${HOME_PATH}/feeds/packages/net/kcptun
