@@ -31,9 +31,9 @@ COOLSNOWWOLF)
   variable REPO_URL="https://github.com/coolsnowwolf/lede"
   variable SOURCE="Lede"
   variable SOURCE_OWNER="Lean"
-  variable LUCI_EDITION="23.05"
+  variable LUCI_EDITION="master"
   variable DISTRIB_SOURCECODE="lede"
-  variable GENE_PATH="${HOME_PATH}/package/base-files/luci2/bin/config_generate"
+  variable GENE_PATH="${HOME_PATH}/package/base-files/files/bin/config_generate"
 ;;
 LIENOL)
   variable REPO_URL="https://github.com/Lienol/openwrt"
