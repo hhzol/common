@@ -316,6 +316,7 @@ function Diy_COOLSNOWWOLF() {
 cd ${HOME_PATH}
 rm -rf ${HOME_PATH}/package/wwan/driver
 rm -rf ${HOME_PATH}/feeds/danshui/luci-app-qmodem
+rm -rf ${HOME_PATH}/package/feeds/danshui/qmodem
 }
 
 function Diy_LIENOL() {
