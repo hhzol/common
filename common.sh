@@ -230,7 +230,7 @@ for x in "${t[@]}"; do
         -name "$x" -type d -exec rm -rf {} +
 done
 
-if [[ ! "${REPO_BRANCH}" =~ ^(main|master|(openwrt-)?(24\.10))$ ]]; then
+if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-fancontrol
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-qmodem
   rm -rf ${HOME_PATH}/feeds/danshui/relevance/quectel_cm-5G
