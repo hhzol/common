@@ -166,6 +166,7 @@ if [[ -n "${SRC_FENZHIHAO}" ]]; then
 else
   git clone --depth=1 "${SRC_LIANJIE}" "${srcdir}"
 fi
+
 if [[ $? -ne 0 ]];then
   TIME r "文件下载失败,请检查网络"
   exit 1
@@ -180,6 +181,7 @@ else
   gitsvn https://github.com/281677160/luci-theme-argon/tree/18.06 "${HOME_PATH}/package/luci-theme-argon"
 fi
 
+echo "src-git alist https://github.com/sbwml/luci-app-alist.git;main" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git danshui https://github.com/281677160/openwrt-package.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git dstheme https://github.com/281677160/openwrt-package.git;$THEME_BRANCH" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "1" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "${HOME_PATH}/feeds.conf.default"
