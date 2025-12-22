@@ -217,7 +217,7 @@ fi
 # 更新feeds后再次修改补充
 cd ${HOME_PATH}
 z="luci-theme-argon,luci-app-argon-config,luci-theme-Butterfly,luci-theme-netgear,luci-theme-atmaterial, \
-luci-theme-rosy,luci-theme-darkmatter,luci-theme-infinityfreedom,luci-theme-design,luci-app-design-config, \
+luci-theme-rosy,luci-theme-darkmatter,luci-theme-infinityfreedom,luci-theme-design,luci-app-design-config,luci-app-homeproxy, \
 luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat, \
 luci-app-eqos,adguardhome,luci-app-adguardhome,mosdns,luci-app-mosdns,luci-app-openclash, \
 luci-app-gost,gost,luci-app-smartdns,smartdns,luci-app-wizard,luci-app-msd_lite,msd_lite, \
@@ -229,6 +229,7 @@ for x in "${t[@]}"; do
         -path "${HOME_PATH}/feeds/danshui" -prune -o \
         -path "${HOME_PATH}/feeds/dstheme" -prune -o \
         -path "${HOME_PATH}/feeds/OpenClash" -prune -o \
+        -path "${HOME_PATH}/feeds/homerpoxy" -prune -o \
         -path "${HOME_PATH}/package/luci-theme-argon" -prune -o \
         -name "$x" -type d -exec rm -rf {} +
 done
