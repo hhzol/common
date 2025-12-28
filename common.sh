@@ -182,7 +182,6 @@ else
 fi
 
 echo "src-git alist https://github.com/sbwml/luci-app-openlist2.git;main" >> "${HOME_PATH}/feeds.conf.default"
-echo "src-git homeproxy https://github.com/immortalwrt/homeproxy.git;master" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git danshui https://github.com/281677160/openwrt-package.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git dstheme https://github.com/281677160/openwrt-package.git;$THEME_BRANCH" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "1" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "${HOME_PATH}/feeds.conf.default"
@@ -219,7 +218,7 @@ cd ${HOME_PATH}
 z="luci-theme-argon,luci-app-argon-config,luci-theme-Butterfly,luci-theme-netgear,luci-theme-atmaterial, \
 luci-theme-rosy,luci-theme-darkmatter,luci-theme-infinityfreedom,luci-theme-design,luci-app-design-config, \
 luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat, \
-luci-app-eqos,adguardhome,luci-app-adguardhome,mosdns,luci-app-mosdns,luci-app-openclash,luci-app-homeproxy, \
+luci-app-eqos,adguardhome,luci-app-adguardhome,mosdns,luci-app-mosdns,luci-app-openclash, \
 luci-app-gost,gost,luci-app-smartdns,smartdns,luci-app-wizard,luci-app-msd_lite,msd_lite, \
 luci-app-ssr-plus,luci-app-passwall,luci-app-passwall2,shadowsocksr-libev,v2dat,v2ray-geodata, \
 luci-app-wechatpush,v2ray-core,v2ray-plugin,v2raya,xray-core,xray-plugin,luci-app-alist,alist"
@@ -229,11 +228,9 @@ for x in "${t[@]}"; do
         -path "${HOME_PATH}/feeds/danshui" -prune -o \
         -path "${HOME_PATH}/feeds/dstheme" -prune -o \
         -path "${HOME_PATH}/feeds/OpenClash" -prune -o \
-        -path "${HOME_PATH}/feeds/homeproxy" -prune -o \
         -path "${HOME_PATH}/package/luci-theme-argon" -prune -o \
         -name "$x" -type d -exec rm -rf {} +
 done
-rm -rf ${HOME_PATH}/feeds/danshui/luci-app-homeproxy
 
 if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-fancontrol
