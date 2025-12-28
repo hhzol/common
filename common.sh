@@ -234,12 +234,9 @@ for x in "${t[@]}"; do
         -name "$x" -type d -exec rm -rf {} +
 done
 
-z="luci-app-homeproxy"
-t=(${z//,/ })
-for x in "${t[@]}"; do
-    find "${HOME_PATH}/feeds/danshui" \
-        -name "$x" -type d -exec rm -rf {} +
-done
+rm -rf ${HOME_PATH}/feeds/danshui/luci-app-homeproxy/*
+mv ${HOME_PATH}/feeds/homerpoxy/* ${HOME_PATH}/feeds/danshui/luci-app-homeproxy/
+rm -rf ${HOME_PATH}/feeds/homerpoxy
 
 if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-fancontrol
