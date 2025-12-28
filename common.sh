@@ -229,14 +229,11 @@ for x in "${t[@]}"; do
         -path "${HOME_PATH}/feeds/danshui" -prune -o \
         -path "${HOME_PATH}/feeds/dstheme" -prune -o \
         -path "${HOME_PATH}/feeds/OpenClash" -prune -o \
-        -path "${HOME_PATH}/feeds/homerpoxy" -prune -o \
+        -path "${HOME_PATH}/feeds/homeproxy" -prune -o \
         -path "${HOME_PATH}/package/luci-theme-argon" -prune -o \
         -name "$x" -type d -exec rm -rf {} +
 done
-
-rm -rf ${HOME_PATH}/feeds/danshui/luci-app-homeproxy/*
-mv ${HOME_PATH}/feeds/homerpoxy/* ${HOME_PATH}/feeds/danshui/luci-app-homeproxy/
-rm -rf ${HOME_PATH}/feeds/homerpoxy
+rm -rf ${HOME_PATH}/feeds/danshui/luci-app-homeproxy
 
 if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-fancontrol
