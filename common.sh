@@ -275,13 +275,13 @@ fi
 # tproxy补丁
 bash "$LINSHI_COMMON/Share/tproxy/nft_tproxy.sh"
 
-if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
-  gitsvn https://github.com/openwrt/packages/tree/openwrt-24.10/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
-fi
+#if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
+#  gitsvn https://github.com/openwrt/packages/tree/openwrt-24.10/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
+#fi
 
-if [[ ! -d "${HOME_PATH}/feeds/packages/devel/packr" ]]; then
-  gitsvn https://github.com/281677160/common/tree/main/Share/packr ${HOME_PATH}/feeds/packages/devel/packr
-fi
+#if [[ ! -d "${HOME_PATH}/feeds/packages/devel/packr" ]]; then
+#  gitsvn https://github.com/281677160/common/tree/main/Share/packr ${HOME_PATH}/feeds/packages/devel/packr
+#fi
 
 # files大法，设置固件无烦恼
 if [ -d "${BUILD_PATCHES}" ]; then
