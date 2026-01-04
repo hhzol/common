@@ -241,8 +241,8 @@ for x in "${t[@]}"; do
         -path "${HOME_PATH}/feeds/dstheme" -prune -o \
         -path "${HOME_PATH}/feeds/OpenClash" -prune -o \
         -path "${HOME_PATH}/package/luci-theme-argon" -prune -o \
-        -path "${HOME_PATH}/feeds/homeproxy" -prune -o \
-        -path "${HOME_PATH}/feeds/adguardhome" -prune -o \
+        -path "${HOME_PATH}/package/homeproxy" -prune -o \
+        -path "${HOME_PATH}/package/adguardhome" -prune -o \
         -name "$x" -type d -exec rm -rf {} +
 done
 
