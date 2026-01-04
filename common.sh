@@ -193,6 +193,7 @@ echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "fee
 git clone https://github.com/linkease/istore.git package/istore
 git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
+git clone https://github.com/AdguardTeam/AdGuardHome.git package/adguardhome
 
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
@@ -227,7 +228,8 @@ fi
 cd ${HOME_PATH}
 z="luci-theme-argon,luci-app-argon-config,luci-theme-Butterfly,luci-theme-netgear,luci-theme-atmaterial, \
 luci-theme-rosy,luci-theme-darkmatter,luci-theme-infinityfreedom,luci-theme-design,luci-app-design-config, \
-luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat,luci-app-homeproxy"
+luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat,luci-app-homeproxy, \
+adguardhome,luci-app-adguardhome,luci-app-openclash"
 #luci-app-eqos,adguardhome,luci-app-adguardhome,mosdns,luci-app-mosdns,luci-app-openclash, \
 #luci-app-gost,gost,luci-app-smartdns,smartdns,luci-app-wizard,luci-app-msd_lite,msd_lite, \
 #luci-app-ssr-plus,luci-app-passwall,luci-app-passwall2,shadowsocksr-libev,v2dat,v2ray-geodata, \
@@ -240,6 +242,7 @@ for x in "${t[@]}"; do
         -path "${HOME_PATH}/feeds/OpenClash" -prune -o \
         -path "${HOME_PATH}/package/luci-theme-argon" -prune -o \
         -path "${HOME_PATH}/feeds/homeproxy" -prune -o \
+        -path "${HOME_PATH}/feeds/adguardhome" -prune -o \
         -name "$x" -type d -exec rm -rf {} +
 done
 
