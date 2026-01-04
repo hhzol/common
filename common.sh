@@ -242,6 +242,7 @@ for x in "${t[@]}"; do
 done
 
 rm -rf ${HOME_PATH}/feeds/packages/lang/rust
+rm -rf ${HOME_PATH}/feeds/packages/onionshare-cli
 
 if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-fancontrol
