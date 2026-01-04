@@ -190,7 +190,7 @@ echo "src-git passwall1 https://github.com/xiaorouji/openwrt-passwall.git;main" 
 echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> "feeds.conf.default"
 echo "src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main" >> "feeds.conf.default"
 echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "feeds.conf.default"
-echo "src-git istore https://github.com/linkease/istore;main" >> "feeds.conf.default"
+git clone https://github.com/linkease/istore.git package/istore
 git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy
 
 # 增加中文语言包
