@@ -191,7 +191,7 @@ echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main"
 echo "src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main" >> "feeds.conf.default"
 echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "feeds.conf.default"
 echo "src-git istore https://github.com/linkease/istore;main" >> "feeds.conf.default"
-echo "src-git luci-app-homeproxy https://github.com/immortalwrt/homeproxy;master" >> "feeds.conf.default"
+echo "src-git homeproxy https://github.com/immortalwrt/homeproxy;master" >> "feeds.conf.default"
 
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
