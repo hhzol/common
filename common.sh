@@ -191,6 +191,7 @@ echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main"
 echo "src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main" >> "feeds.conf.default"
 echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "feeds.conf.default"
 echo "src-git istore https://github.com/linkease/istore;main" >> "feeds.conf.default"
+echo "src-git homeproxy https://github.com/VIKINGYFY/HomeProxy;main" >> "feeds.conf.default"
 
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
@@ -222,7 +223,7 @@ fi
 cd ${HOME_PATH}
 z="luci-theme-argon,luci-app-argon-config,luci-theme-Butterfly,luci-theme-netgear,luci-theme-atmaterial, \
 luci-theme-rosy,luci-theme-darkmatter,luci-theme-infinityfreedom,luci-theme-design,luci-app-design-config, \
-luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat"
+luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat,luci-app-homeproxy"
 #luci-app-eqos,adguardhome,luci-app-adguardhome,mosdns,luci-app-mosdns,luci-app-openclash, \
 #luci-app-gost,gost,luci-app-smartdns,smartdns,luci-app-wizard,luci-app-msd_lite,msd_lite, \
 #luci-app-ssr-plus,luci-app-passwall,luci-app-passwall2,shadowsocksr-libev,v2dat,v2ray-geodata, \
@@ -234,6 +235,7 @@ for x in "${t[@]}"; do
         -path "${HOME_PATH}/feeds/dstheme" -prune -o \
         -path "${HOME_PATH}/feeds/OpenClash" -prune -o \
         -path "${HOME_PATH}/package/luci-theme-argon" -prune -o \
+        -path "${HOME_PATH}/feeds/homeproxy" -prune -o \
         -name "$x" -type d -exec rm -rf {} +
 done
 
