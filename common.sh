@@ -212,7 +212,7 @@ variable ZZZ_PATH="$(find "$HOME_PATH/package" -name "*-default-settings" -not -
 [[ -n "${ZZZ_PATH}" ]] && grep -q "openwrt_banner" "${ZZZ_PATH}" && sed -i '/openwrt_banner/d' "${ZZZ_PATH}"
 
 # rm -rf ${HOME_PATH}/feeds/packages/lang/rust
-rm -rf ${HOME_PATH}/package/feeds/packages/onionshare-cli
+rm -rf ${HOME_PATH}/package/feeds/packages/{onionshare-cli}
 
 # 更新feeds
 cd ${HOME_PATH}
