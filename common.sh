@@ -213,6 +213,9 @@ fi
 variable ZZZ_PATH="$(find "$HOME_PATH/package" -name "*-default-settings" -not -path "A/exclude_dir/*" -print)"
 [[ -n "${ZZZ_PATH}" ]] && grep -q "openwrt_banner" "${ZZZ_PATH}" && sed -i '/openwrt_banner/d' "${ZZZ_PATH}"
 
+rm -rf ${HOME_PATH}/feeds/packages/lang/rust
+rm -rf ${HOME_PATH}/package/feeds/packages/onionshare-cli
+
 # 更新feeds
 cd ${HOME_PATH}
 ./scripts/feeds clean
@@ -241,9 +244,6 @@ for x in "${t[@]}"; do
         -path "${HOME_PATH}/feeds/homeproxy" -prune -o \
         -name "$x" -type d -exec rm -rf {} +
 done
-
-rm -rf ${HOME_PATH}/feeds/packages/lang/rust
-rm -rf ${HOME_PATH}/package/feeds/packages/onionshare-cli
 
 if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-fancontrol
