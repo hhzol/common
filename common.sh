@@ -175,10 +175,12 @@ if [[ -d "${srcdir}/modules/luci-mod-system" ]]; then
   THEME_BRANCH="Theme2"
   rm -rf "${srcdir}"
   gitsvn https://github.com/281677160/luci-theme-argon/tree/master "${HOME_PATH}/package/luci-theme-argon"
+  echo "000"
 else
   THEME_BRANCH="Theme1"
   rm -rf "${srcdir}"
   gitsvn https://github.com/281677160/luci-theme-argon/tree/18.06 "${HOME_PATH}/package/luci-theme-argon"
+  echo "111"
 fi
 
 echo "src-git alist https://github.com/sbwml/luci-app-openlist2.git;main" >> "${HOME_PATH}/feeds.conf.default"
