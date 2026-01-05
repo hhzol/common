@@ -193,6 +193,7 @@ echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "fee
 git clone https://github.com/linkease/istore.git package/istore
 git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
