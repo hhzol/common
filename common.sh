@@ -324,6 +324,29 @@ cat >> "${KEEPD_PATH}" <<-EOF
 /www/luci-static/argon/background
 /etc/smartdns/custom.conf
 EOF
+
+
+echo "=============================="
+echo "开始编译 Node host 工具"
+echo "=============================="
+
+# Node host 包
+make package/feeds/packages/node-yarn/host/compile V=s
+make package/feeds/packages/node-pnpm/host/compile V=s
+
+echo "=============================="
+echo "开始编译 Python host 工具"
+echo "=============================="
+
+# Python host 包
+make package/feeds/packages/python3-pip/host/compile V=s
+make package/feeds/packages/python3-setuptools/host/compile V=s
+make package/feeds/packages/python3-pysocks/host/compile V=s
+make package/feeds/packages/python3-unidecode/host/compile V=s
+
+echo "=============================="
+echo "所有 host 依赖已编译完成"
+echo "=============================="
 }
 
 
@@ -366,28 +389,6 @@ if [[ "${REPO_BRANCH}" == *"21.02"* ]] || [[ "${REPO_BRANCH}" == *"18.06"* ]] ||
   gitsvn https://github.com/coolsnowwolf/packages/tree/152022403f0ab2a85063ae1cd9687bd5240fe9b7/net/dnsproxy ${HOME_PATH}/feeds/packages/net/dnsproxy
   gitsvn https://github.com/coolsnowwolf/lede/tree/326599e3d08d7fe1dc084e1c87581cdf5a8e41a6/package/libs/libjson-c ${HOME_PATH}/package/libs/libjson-c
 fi
-
-echo "=============================="
-echo "开始编译 Node host 工具"
-echo "=============================="
-
-# Node host 包
-make package/feeds/packages/node-yarn/host/compile V=s
-make package/feeds/packages/node-pnpm/host/compile V=s
-
-echo "=============================="
-echo "开始编译 Python host 工具"
-echo "=============================="
-
-# Python host 包
-make package/feeds/packages/python3-pip/host/compile V=s
-make package/feeds/packages/python3-setuptools/host/compile V=s
-make package/feeds/packages/python3-pysocks/host/compile V=s
-make package/feeds/packages/python3-unidecode/host/compile V=s
-
-echo "=============================="
-echo "所有 host 依赖已编译完成"
-echo "=============================="
 }
 
 
