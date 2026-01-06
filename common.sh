@@ -182,7 +182,7 @@ else
 fi
 
 echo "src-git alist https://github.com/sbwml/luci-app-openlist2.git;main" >> "${HOME_PATH}/feeds.conf.default"
-# echo "src-git danshui https://github.com/281677160/openwrt-package.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git danshui https://github.com/281677160/openwrt-package.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git dstheme https://github.com/281677160/openwrt-package.git;$THEME_BRANCH" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "1" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "2" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "${HOME_PATH}/feeds.conf.default"
@@ -190,7 +190,7 @@ echo "src-git passwall1 https://github.com/xiaorouji/openwrt-passwall.git;main" 
 echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> "feeds.conf.default"
 echo "src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main" >> "feeds.conf.default"
 echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "feeds.conf.default"
-git clone https://github.com/linkease/istore.git package/istore
+#git clone https://github.com/linkease/istore.git package/istore
 git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
@@ -225,11 +225,11 @@ fi
 cd ${HOME_PATH}
 z="luci-theme-argon,luci-app-argon-config,luci-theme-Butterfly,luci-theme-netgear,luci-theme-atmaterial, \
 luci-theme-rosy,luci-theme-darkmatter,luci-theme-infinityfreedom,luci-theme-design,luci-app-design-config, \
-luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat,luci-app-homeproxy"
-#luci-app-eqos,adguardhome,luci-app-adguardhome,mosdns,luci-app-mosdns,luci-app-openclash, \
-#luci-app-gost,gost,luci-app-smartdns,smartdns,luci-app-wizard,luci-app-msd_lite,msd_lite, \
-#luci-app-ssr-plus,luci-app-passwall,luci-app-passwall2,shadowsocksr-libev,v2dat,v2ray-geodata, \
-#luci-app-wechatpush,v2ray-core,v2ray-plugin,v2raya,xray-core,xray-plugin,luci-app-alist,alist"
+luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat,luci-app-homeproxy, \
+luci-app-eqos,adguardhome,luci-app-adguardhome,mosdns,luci-app-mosdns,luci-app-openclash, \
+luci-app-gost,gost,luci-app-smartdns,smartdns,luci-app-wizard,luci-app-msd_lite,msd_lite, \
+luci-app-ssr-plus,luci-app-passwall,luci-app-passwall2,shadowsocksr-libev,v2dat,v2ray-geodata, \
+luci-app-wechatpush,v2ray-core,v2ray-plugin,v2raya,xray-core,xray-plugin,luci-app-alist,alist"
 t=(${z//,/ })
 for x in "${t[@]}"; do
     find "${HOME_PATH}/feeds" "${HOME_PATH}/package" \
@@ -242,11 +242,9 @@ for x in "${t[@]}"; do
         -name "$x" -type d -exec rm -rf {} +
 done
 
-rm -rf ${HOME_PATH}/feeds/dstheme/relevance/openwrt-smartdns
-rm -rf ${HOME_PATH}/feeds/dstheme/openwrt-smartdns
-rm -rf ${HOME_PATH}/package/feeds/dstheme/openwrt-smartdns
-rm -rf ${HOME_PATH}/tmp/.packageinfo
-rm -rf ${HOME_PATH}/tmp/info/.packageinfo*
+#删除danshui中多余的主题和插件
+rm -rf ${HOME_PATH}/feeds/danshui/{luci-app-passwall,luci-app-passwall2,luci-app-amlogic,luci-app-ssr-plus}
+echo "删除danshui中多余的插件..."
 
 if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-fancontrol
