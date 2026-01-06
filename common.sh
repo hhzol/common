@@ -188,7 +188,7 @@ echo "src-git dstheme https://github.com/281677160/openwrt-package.git;$THEME_BR
 [[ "${OpenClash_branch}" == "2" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git passwall1 https://github.com/xiaorouji/openwrt-passwall.git;main" >> "feeds.conf.default"
 echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> "feeds.conf.default"
-echo "src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main" >> "feeds.conf.default"
+#echo "src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main" >> "feeds.conf.default"
 echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "feeds.conf.default"
 #git clone https://github.com/linkease/istore.git package/istore
 git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy
@@ -236,14 +236,21 @@ for x in "${t[@]}"; do
         -path "${HOME_PATH}/feeds/danshui" -prune -o \
         -path "${HOME_PATH}/feeds/dstheme" -prune -o \
         -path "${HOME_PATH}/feeds/OpenClash" -prune -o \
+        -path "${HOME_PATH}/feeds/passwall" -prune -o \
+        -path "${HOME_PATH}/feeds/passwall2" -prune -o \
+        -path "${HOME_PATH}/feeds/helloworld" -prune -o \
         -path "${HOME_PATH}/package/luci-theme-argon" -prune -o \
         -path "${HOME_PATH}/package/homeproxy" -prune -o \
         -path "${HOME_PATH}/package/adguardhome" -prune -o \
         -name "$x" -type d -exec rm -rf {} +
 done
 
+#删除dstheme中多余的主题和插件
+rm -rf ${HOME_PATH}/feeds/dsthems/{luci-app-smartdns,openwrt-smartdns}
+rm -rf ${HOME_PATH}/feeds/dsthems/relevance/openwrt-smartdns
+echo "删除dstheme中多余的插件..."
 #删除danshui中多余的主题和插件
-rm -rf ${HOME_PATH}/feeds/danshui/{luci-app-passwall,luci-app-passwall2,luci-app-amlogic,luci-app-ssr-plus}
+rm -rf ${HOME_PATH}/feeds/danshui/{luci-app-passwall,luci-app-passwall2,luci-app-amlogic,luci-app-ssr-plus,luci-app-unblockneteasemusic}
 echo "删除danshui中多余的插件..."
 
 if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
