@@ -214,6 +214,10 @@ variable ZZZ_PATH="$(find "$HOME_PATH/package" -name "*-default-settings" -not -
 
 #rm -rf ${HOME_PATH}/feeds/packages/lang/rust
 #rm -rf ${HOME_PATH}/package/feeds/packages/onionshare-cli
+rm -rf ${HOME_PATH}/package/feeds/packages/cloudreve
+rm -rf ${HOME_PATH}/package/feeds/packages/filebrowser
+rm -rf ${HOME_PATH}/package/feeds/packages/onionshare-cli
+rm -rf ${HOME_PATH}/package/feeds/packages/sub-web
 
 # 更新feeds
 cd ${HOME_PATH}
