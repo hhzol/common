@@ -428,6 +428,48 @@ fi
 ./scripts/feeds install -a &>/dev/null
 ./scripts/feeds install -a
 
+echo "=============================="
+echo "检查并编译 Python3 host 依赖"
+echo "=============================="
+PYTHON_PKGS=(python3-pip python3-setuptools python3-pysocks python3-unidecode)
+
+for pkg in "${PYTHON_PKGS[@]}"; do
+    if [ ! -f "build_dir/host/bin/${pkg}" ]; then
+        echo "编译 $pkg/host ..."
+        make package/feeds/packages/$pkg/host/compile V=s
+    else
+        echo "$pkg/host 已存在，跳过"
+    fi
+done
+
+echo "=============================="
+echo "检查并编译 Node host 依赖"
+echo "=============================="
+NODE_PKGS=(node node-yarn node-pnpm)
+
+for pkg in "${NODE_PKGS[@]}"; do
+    if [ ! -f "build_dir/host/bin/${pkg}" ]; then
+        echo "编译 $pkg/host ..."
+        make package/feeds/packages/$pkg/host/compile V=s
+    else
+        echo "$pkg/host 已存在，跳过"
+    fi
+done
+
+echo "=============================="
+echo "检查并编译 LuCI / Lua host 依赖"
+echo "=============================="
+LUCI_PKGS=(luci-base csstidy luasrcdiet)
+
+for pkg in "${LUCI_PKGS[@]}"; do
+    echo "编译 $pkg/host ..."
+    make package/feeds/packages/$pkg/host/compile V=s || true
+done
+
+echo "=============================="
+echo "所有 host 依赖检查完成"
+echo "=============================="
+
 # 使用自定义配置文件
 [[ -f "$MYCONFIG_FILE" ]] && cp -Rf $MYCONFIG_FILE .config
 }
