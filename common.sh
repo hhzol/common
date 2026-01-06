@@ -242,6 +242,8 @@ for x in "${t[@]}"; do
         -name "$x" -type d -exec rm -rf {} +
 done
 
+rm -rf ${HOME_PATH}/package/feeds/dstheme/openwrt-smartdns
+
 if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-fancontrol
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-qmodem
