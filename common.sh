@@ -242,7 +242,11 @@ for x in "${t[@]}"; do
         -name "$x" -type d -exec rm -rf {} +
 done
 
-rm -rf ${HOME_PATH}/package/feeds/dstheme/openwrt-smartdns
+rm -rf "${HOME_PATH}/package/feeds/dstheme/openwrt-smartdns"
+[ -d "${HOME_PATH}/package/feeds/dstheme/openwrt-smartdns" ] \
+  && echo "❌ 目录仍存在" \
+  || echo "✅ 目录已删除或原本不存在"
+
 
 if [[ ! "${REPO_BRANCH}" =~ ^(main|(openwrt-)?(24\.10))$ ]]; then
   rm -rf ${HOME_PATH}/feeds/danshui/luci-app-fancontrol
