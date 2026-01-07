@@ -190,6 +190,7 @@ echo "src-git passwall1 https://github.com/xiaorouji/openwrt-passwall.git;main" 
 echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> "feeds.conf.default"
 echo "src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main" >> "feeds.conf.default"
 echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "feeds.conf.default"
+echo "src-git istore https://github.com/sbwml/package_new_istore.git;main" >> "feeds.conf.default"
 #git clone https://github.com/linkease/istore.git package/istore
 git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
@@ -251,7 +252,7 @@ rm -rf ${HOME_PATH}/feeds/dstheme/{luci-app-smartdns,openwrt-smartdns}
 rm -rf ${HOME_PATH}/feeds/dstheme/relevance/openwrt-smartdns
 echo "删除dstheme中多余的插件..."
 #删除danshui中多余的主题和插件
-rm -rf ${HOME_PATH}/feeds/danshui/{luci-app-passwall,luci-app-passwall2,luci-app-amlogic,luci-app-ssr-plus,luci-app-unblockneteasemusic}
+rm -rf ${HOME_PATH}/feeds/danshui/{luci-app-passwall,luci-app-passwall2,luci-app-amlogic,luci-app-ssr-plus,luci-app-unblockneteasemusic,luci-app-homeproxy,luci-app-linkease,luci-app-istoreex,luci-app-store,luci-app-istoreenhance}
 rm -rf ${HOME_PATH}/feeds/danshui/relevance/passwall-packages
 echo "删除danshui中多余的插件..."
 
