@@ -191,7 +191,6 @@ echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main"
 echo "src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main" >> "feeds.conf.default"
 echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "feeds.conf.default"
 echo "src-git istore https://github.com/sbwml/package_new_istore.git;main" >> "feeds.conf.default"
-#git clone https://github.com/linkease/istore.git package/istore
 git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
