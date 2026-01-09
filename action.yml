@@ -57,6 +57,7 @@ runs:
            UPLOAD_RELEASE="${{ github.event.inputs.UPLOAD_RELEASE }}"
            CACHEWRTBUILD_SWITCH="${{ github.event.inputs.CACHEWRTBUILD_SWITCH }}"
            UPDATE_FIRMWARE_ONLINE="${{ github.event.inputs.UPDATE_FIRMWARE_ONLINE }}"
+           ONLINE_FIRMWARE="${{ github.event.inputs.ONLINE_FIRMWARE }}"
         else
            #其他启动
            if [[ -f "${COMPILE_PATH}/settings.ini" ]]; then
