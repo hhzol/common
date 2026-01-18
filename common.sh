@@ -255,7 +255,7 @@ rm -rf ${HOME_PATH}/feeds/dstheme/{luci-app-smartdns,openwrt-smartdns}
 rm -rf ${HOME_PATH}/feeds/dstheme/relevance/openwrt-smartdns
 echo "删除dstheme中多余的插件..."
 #删除danshui中多余的主题和插件
-rm -rf ${HOME_PATH}/feeds/danshui/{luci-app-passwall,luci-app-passwall2,luci-app-amlogic,luci-app-ssr-plus,luci-app-unblockneteasemusic,luci-app-homeproxy,luci-app-linkease,luci-app-istorex,luci-app-store,luci-app-istoreenhance,luci-app-quickstart}
+rm -rf ${HOME_PATH}/feeds/danshui/{luci-app-passwall,luci-app-passwall2,luci-app-amlogic,luci-app-ssr-plus,luci-app-unblockneteasemusic,luci-app-homeproxy,luci-app-linkease,luci-app-istorex,luci-app-store,luci-app-istoreenhance,luci-app-quickstart,luci-app-nikki}
 rm -rf ${HOME_PATH}/feeds/danshui/relevance/passwall-packages
 echo "删除danshui中多余的插件..."
 
