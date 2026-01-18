@@ -192,9 +192,9 @@ echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main"
 echo "src-git helloworld https://github.com/fw876/helloworld.git;master" >> "feeds.conf.default"
 echo "src-git momo https://github.com/nikkinikki-org/OpenWrt-momo.git;main" >> "feeds.conf.default"
 echo "src-git istore https://github.com/linkease/istore;main" >> "feeds.conf.default"
-if ! { [ "${SOURCE_CODE}" = "IMMORTALWRT" ] && [ "${REPO_BRANCH}" = "master" ]; }; then
-    echo "src-git istore https://github.com/linkease/istore;main" >> "feeds.conf.default"
-fi
+#if ! { [ "${SOURCE_CODE}" = "IMMORTALWRT" ] && [ "${REPO_BRANCH}" = "master" ]; }; then
+#    echo "src-git istore https://github.com/linkease/istore;main" >> "feeds.conf.default"
+#fi
 git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
