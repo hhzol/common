@@ -173,10 +173,12 @@ fi
 if [[ -d "${srcdir}/modules/luci-mod-system" ]]; then
   THEME_BRANCH="Theme2"
   rm -rf "${srcdir}"
+  echo "theme2"
   gitsvn https://github.com/281677160/luci-theme-argon/tree/master "${HOME_PATH}/package/luci-theme-argon"
 else
   THEME_BRANCH="Theme1"
   rm -rf "${srcdir}"
+  echo "theme1"
   gitsvn https://github.com/281677160/luci-theme-argon/tree/18.06 "${HOME_PATH}/package/luci-theme-argon"
 fi
 
