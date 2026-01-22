@@ -180,7 +180,7 @@ else
   gitsvn https://github.com/281677160/luci-theme-argon/tree/18.06 "${HOME_PATH}/package/luci-theme-argon"
 fi
 
-echo "src-git danshui https://github.com/281677160/openwrt-package.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
+#echo "src-git danshui https://github.com/281677160/openwrt-package.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git dstheme https://github.com/281677160/openwrt-package.git;$THEME_BRANCH" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "1" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "2" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "${HOME_PATH}/feeds.conf.default"
@@ -252,12 +252,12 @@ gitsvn https://github.com/sbwml/packages_lang_golang ${HOME_PATH}/feeds/packages
 gitsvn https://github.com/sbwml/feeds_packages_lang_node-prebuilt ${HOME_PATH}/feeds/packages/lang/node
 
 # store插件依赖
-if [[ -d "${HOME_PATH}/feeds/danshui/relevance/nas-packages/network/services" ]] && [[ ! -d "${HOME_PATH}//package/network/services/ddnsto" ]]; then
-  mv ${HOME_PATH}/feeds/danshui/relevance/nas-packages/network/services/* ${HOME_PATH}/package/network/services
-fi
-if [[ -d "${HOME_PATH}/feeds/danshui/relevance/nas-packages/multimedia/ffmpeg-remux" ]] && [[ ! -d "${HOME_PATH}/feeds/packages/multimedia/ffmpeg-remux" ]]; then
-  mv ${HOME_PATH}/feeds/danshui/relevance/nas-packages/multimedia/ffmpeg-remux ${HOME_PATH}/feeds/packages/multimedia/ffmpeg-remux
-fi
+#if [[ -d "${HOME_PATH}/feeds/danshui/relevance/nas-packages/network/services" ]] && [[ ! -d "${HOME_PATH}//package/network/services/ddnsto" ]]; then
+#  mv ${HOME_PATH}/feeds/danshui/relevance/nas-packages/network/services/* ${HOME_PATH}/package/network/services
+#fi
+#if [[ -d "${HOME_PATH}/feeds/danshui/relevance/nas-packages/multimedia/ffmpeg-remux" ]] && [[ ! -d "${HOME_PATH}/feeds/packages/multimedia/ffmpeg-remux" ]]; then
+#  mv ${HOME_PATH}/feeds/danshui/relevance/nas-packages/multimedia/ffmpeg-remux ${HOME_PATH}/feeds/packages/multimedia/ffmpeg-remux
+#fi
 
 # tproxy补丁
 bash "$LINSHI_COMMON/Share/tproxy/nft_tproxy.sh"
