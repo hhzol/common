@@ -189,8 +189,7 @@ echo "src-git dstheme https://github.com/281677160/openwrt-package.git;$THEME_BR
 [[ "${OpenClash_branch}" == "2" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "${HOME_PATH}/feeds.conf.default"
 
 echo "src-git momo https://github.com/nikkinikki-org/OpenWrt-momo.git;main" >> "feeds.conf.default"
-echo "src-git usb_printer https://github.com/hhzol/luci-app-usb_printer.git;main" >> "feeds.conf.default"
-
+git clone https://github.com/hhzol/luci-app-usb_printer.git package/usb_printer
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
   gitsvn https://github.com/281677160/common/tree/main/Share/default-settings "${HOME_PATH}/package/default-settings"
