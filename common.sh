@@ -191,6 +191,8 @@ echo "src-git dstheme https://github.com/281677160/openwrt-package.git;$THEME_BR
 echo "src-git momo https://github.com/nikkinikki-org/OpenWrt-momo.git;main" >> "feeds.conf.default"
 git clone https://github.com/hhzol/luci-app-usb_printer.git package/usb_printer
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
   gitsvn https://github.com/281677160/common/tree/main/Share/default-settings "${HOME_PATH}/package/default-settings"
