@@ -197,7 +197,10 @@ echo "src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2.gi
 
 git clone https://github.com/hhzol/luci-app-usb_printer.git package/usb_printer
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+echo "${TARGET_BOARD}"
+if [[ "${TARGET_BOARD}" =~ (armvirt|armsr) ]]; then
+  git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+fi
 
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
