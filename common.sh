@@ -384,7 +384,7 @@ if [[ "${REPO_BRANCH}" == *"23.05"* ]]; then
   gitsvn https://github.com/coolsnowwolf/lede/tree/326599e3d08d7fe1dc084e1c87581cdf5a8e41a6/package/libs/libjson-c ${HOME_PATH}/package/libs/libjson-c
 fi
 if [[ "${REPO_BRANCH}" =~ (main|master) ]]; then
-  gitsvn https://github.com/openwrt/packages/tree/openwrt-24.10/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
+  gitsvn https://github.com/openwrt/packages/tree/master/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
 fi
 }
 
