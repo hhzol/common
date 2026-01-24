@@ -207,7 +207,7 @@ git clone --depth=1 https://github.com/immortalwrt/packages.git /tmp/imm-package
 cp -a /tmp/imm-packages/net/vlmcsd package/vlmcsd
 rm -rf /tmp/imm-packages
 git clone --depth=1 https://github.com/immortalwrt/luci.git /tmp/imm-luci
-mkdir -p package/luci-applications
+mkdir -p package/luci-applications/luci-app-vlmcsd
 cp -a /tmp/imm-luci/applications/luci-app-vlmcsd feeds/luci/applications/luci-app-vlmcsd
 rm -rf /tmp/imm-luci
 
