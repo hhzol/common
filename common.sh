@@ -425,11 +425,9 @@ fi
 # 更新和安装feeds
 ./scripts/feeds install -a &>/dev/null
 ./scripts/feeds install -a
-#grep -R "Package/momo" -n package feeds | head -n 30
-#grep -R "sing-box-tiny" -n package feeds | head -n 30
-#grep -R "luci-app-momo" -n package feeds | head -n 30
-grep -R "feeds/base" -n . | head -n 50
-
+grep -R "Package/momo" -n package feeds | head -n 30
+grep -R "sing-box-tiny" -n package feeds | head -n 30
+grep -R "luci-app-momo" -n package feeds | head -n 30
 
 # 使用自定义配置文件
 [[ -f "$MYCONFIG_FILE" ]] && cp -Rf $MYCONFIG_FILE .config
