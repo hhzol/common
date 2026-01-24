@@ -424,6 +424,7 @@ fi
 # 更新和安装feeds
 ./scripts/feeds install -a &>/dev/null
 ./scripts/feeds install -a
+rm -rf ${HOME_PATH}/files/usr/bin/AdGuardHome
 
 # 使用自定义配置文件
 [[ -f "$MYCONFIG_FILE" ]] && cp -Rf $MYCONFIG_FILE .config
