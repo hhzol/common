@@ -197,18 +197,18 @@ echo "src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2.gi
 
 git clone https://github.com/hhzol/luci-app-usb_printer.git package/usb_printer
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
-
 if grep -q "armvirt=y" $MYCONFIG_FILE || grep -q "armsr=y" $MYCONFIG_FILE; then
   git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
-  rm -rf feeds/packages/net/vlmcsd
-  rm -rf feeds/luci/applications/luci-app-vlmcsd
-  git clone --depth=1 https://github.com/immortalwrt/packages.git /tmp/imm-packages
-  cp -a /tmp/imm-packages/net/vlmcsd package/vlmcsd
-  rm -rf /tmp/imm-packages
-  git clone --depth=1 https://github.com/immortalwrt/luci.git /tmp/imm-luci
-  cp -a /tmp/imm-luci/applications/luci-app-vlmcsd package/luci-app-vlmcsd
-  rm -rf /tmp/imm-luci
 fi
+
+rm -rf feeds/packages/net/vlmcsd
+rm -rf feeds/luci/applications/luci-app-vlmcsd
+git clone --depth=1 https://github.com/immortalwrt/packages.git /tmp/imm-packages
+cp -a /tmp/imm-packages/net/vlmcsd package/vlmcsd
+rm -rf /tmp/imm-packages
+git clone --depth=1 https://github.com/immortalwrt/luci.git /tmp/imm-luci
+cp -a /tmp/imm-luci/applications/luci-app-vlmcsd package/luci-app-vlmcsd
+rm -rf /tmp/imm-luci
 
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
