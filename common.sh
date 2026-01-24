@@ -272,7 +272,7 @@ gitsvn https://github.com/sbwml/feeds_packages_lang_node-prebuilt ${HOME_PATH}/f
 bash "$LINSHI_COMMON/Share/tproxy/nft_tproxy.sh"
 
 if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
-  gitsvn https://github.com/openwrt/packages/tree/openwrt-24.10/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
+  gitsvn https://github.com/openwrt/packages/tree/master/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
 fi
 
 if [[ ! -d "${HOME_PATH}/feeds/packages/devel/packr" ]]; then
