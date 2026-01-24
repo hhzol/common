@@ -183,23 +183,23 @@ else
 fi
 
 #echo "src-git danshui https://github.com/281677160/openwrt-package.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
-#echo "src-git smpackage https://github.com/kenzok8/small-package.git;main" >> "feeds.conf.default"
+#echo "src-git smpackage https://github.com/kenzok8/small-package.git;main" >> "${HOME_PATH}/feeds.conf.default"
 #echo "src-git dstheme https://github.com/281677160/openwrt-package.git;$THEME_BRANCH" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "1" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "2" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "${HOME_PATH}/feeds.conf.default"
 
-echo "src-git momo https://github.com/nikkinikki-org/OpenWrt-momo.git;main" >> "feeds.conf.default"
-echo "src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki.git;main" >> "feeds.conf.default"
-echo "src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main" >> "feeds.conf.default"
-echo "src-git passwall https://github.com/Openwrt-Passwall/openwrt-passwall.git;main" >> "feeds.conf.default"
-echo "src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2.git;main" >> "feeds.conf.default"
-#echo "src-git istore https://github.com/linkease/istore;main" >> "feeds.conf.default"
-echo "src-git kms https://github.com/gaoderby/luci-app-kms;main" >> "feeds.conf.default"
+echo "src-git momo https://github.com/nikkinikki-org/OpenWrt-momo.git;main" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki.git;main" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git passwall https://github.com/Openwrt-Passwall/openwrt-passwall.git;main" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2.git;main" >> "${HOME_PATH}/feeds.conf.default"
+#echo "src-git istore https://github.com/linkease/istore;main" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git kms https://github.com/gaoderby/luci-app-kms;main" >> "${HOME_PATH}/feeds.conf.default"
 
-git clone https://github.com/hhzol/luci-app-usb_printer.git package/usb_printer
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/unblockneteasemusic
+git clone https://github.com/hhzol/luci-app-usb_printer.git ${HOME_PATH}/package/usb_printer
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git ${HOME_PATH}/package/unblockneteasemusic
 if grep -q "armvirt=y" $MYCONFIG_FILE || grep -q "armsr=y" $MYCONFIG_FILE; then
-  git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+  git clone https://github.com/ophub/luci-app-amlogic.git ${HOME_PATH}/package/luci-app-amlogic
 fi
 
 # 增加中文语言包
