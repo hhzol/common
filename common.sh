@@ -421,6 +421,9 @@ if [[ ! "${Default_theme}" == "0" ]] && [[ -n "${Default_theme}" ]]; then
 fi
 
 # 更新和安装feeds
+rm -rf ${HOME_PATH}/tmp/.config-package.in
+rm -rf ${HOME_PATH}/feeds/*
+./scripts/feeds updata -a
 ./scripts/feeds install -a &>/dev/null
 ./scripts/feeds install -a
 
