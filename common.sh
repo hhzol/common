@@ -200,6 +200,14 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.gi
 
 if grep -q "armvirt=y" $MYCONFIG_FILE || grep -q "armsr=y" $MYCONFIG_FILE; then
   git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+  rm -rf feeds/packages/net/vlmcsd
+  rm -rf feeds/luci/applications/luci-app-vlmcsd
+  git clone --depth=1 https://github.com/immortalwrt/packages.git /tmp/imm-packages
+  cp -a /tmp/imm-packages/net/vlmcsd package/vlmcsd
+  rm -rf /tmp/imm-packages
+  git clone --depth=1 https://github.com/immortalwrt/luci.git /tmp/imm-luci
+  cp -a /tmp/imm-luci/applications/luci-app-vlmcsd package/luci-app-vlmcsd
+  rm -rf /tmp/imm-luci
 fi
 
 # 增加中文语言包
@@ -426,16 +434,6 @@ fi
 # 更新和安装feeds
 ./scripts/feeds install -a &>/dev/null
 ./scripts/feeds install -a
-
-if [[ "${SOURCE_CODE}" == "OFFICIAL" ]] && [[ "${REPO_BRANCH}" == "main" ]]; then
-  # 删除 feeds 里的旧版本，避免冲突
-  rm -rf feeds/packages/net/vlmcsd
-  rm -rf feeds/luci/applications/luci-app-vlmcsd
-
-  # 导入 ImmortalWrt 版本
-  svn export https://github.com/immortalwrt/packages/trunk/net/vlmcsd package/vlmcsd
-  svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-vlmcsd package/luci-app-vlmcsd
-fi
 
 # 使用自定义配置文件
 [[ -f "$MYCONFIG_FILE" ]] && cp -Rf $MYCONFIG_FILE .config
