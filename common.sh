@@ -204,10 +204,10 @@ fi
 rm -rf feeds/packages/net/vlmcsd
 rm -rf feeds/luci/applications/luci-app-vlmcsd
 git clone --depth=1 https://github.com/immortalwrt/packages.git ${HOME_PATH}/tmp/imm-packages
-cp -a ${HOME_PATH}/tmp/imm-packages/net/vlmcsd package/vlmcsd
+cp -a ${HOME_PATH}/tmp/imm-packages/net/vlmcsd feeds/packages/net/vlmcsd
 rm -rf /tmp/imm-packages
 git clone --depth=1 https://github.com/immortalwrt/luci.git /tmp/imm-luci
-cp -a ${HOME_PATH}/tmp/imm-luci/applications/luci-app-vlmcsd package/luci-app-vlmcsd
+cp -a ${HOME_PATH}/tmp/imm-luci/applications/luci-app-vlmcsd feeds/luci/applications/luci-app-vlmcsd
 rm -rf /tmp/imm-luci
 
 # 增加中文语言包
