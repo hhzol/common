@@ -204,6 +204,7 @@ fi
 rm -rf feeds/packages/net/vlmcsd
 rm -rf feeds/luci/applications/luci-app-vlmcsd
 git clone --depth=1 https://github.com/immortalwrt/packages.git /tmp/imm-packages
+mkdir -p package/feeds/vlmcsd
 cp -a /tmp/imm-packages/net/vlmcsd package/feeds/vlmcsd
 rm -rf /tmp/imm-packages
 git clone --depth=1 https://github.com/immortalwrt/luci.git /tmp/imm-luci
