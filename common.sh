@@ -427,6 +427,14 @@ fi
 ./scripts/feeds install -a &>/dev/null
 ./scripts/feeds install -a
 
+# 删除 feeds 里的旧版本，避免冲突
+rm -rf feeds/packages/net/vlmcsd
+rm -rf feeds/luci/applications/luci-app-vlmcsd
+
+# 导入 ImmortalWrt 版本
+svn export https://github.com/immortalwrt/packages/trunk/net/vlmcsd package/vlmcsd
+svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-vlmcsd package/luci-app-vlmcsd
+
 # 使用自定义配置文件
 [[ -f "$MYCONFIG_FILE" ]] && cp -Rf $MYCONFIG_FILE .config
 }
