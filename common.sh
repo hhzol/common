@@ -400,6 +400,9 @@ if [[ ! "${Default_theme}" == "0" ]] && [[ -n "${Default_theme}" ]]; then
   echo "CONFIG_PACKAGE_luci-theme-$Default_theme=y" >>$MYCONFIG_FILE
 fi
 
+#修复Rust[host]编译错误
+sed -i 's/llvm\.download-ci-llvm=true/llvm.download-ci-llvm=false/' "${HOME_PATH}/feeds/packages/lang/rust/Makefile"
+
 # 更新和安装feeds
 ./scripts/feeds install -a &>/dev/null
 ./scripts/feeds install -a
