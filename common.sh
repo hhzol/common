@@ -248,9 +248,9 @@ gitsvn https://github.com/sbwml/feeds_packages_lang_node-prebuilt ${HOME_PATH}/f
 # tproxy补丁
 bash "$LINSHI_COMMON/Share/tproxy/nft_tproxy.sh"
 
-if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
-  gitsvn https://github.com/openwrt/packages/tree/main/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
-fi
+#if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
+#  gitsvn https://github.com/openwrt/packages/tree/main/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
+#fi
 
 if [[ ! -d "${HOME_PATH}/feeds/packages/devel/packr" ]]; then
   gitsvn https://github.com/281677160/common/tree/main/Share/packr ${HOME_PATH}/feeds/packages/devel/packr
@@ -360,9 +360,9 @@ if [[ "${REPO_BRANCH}" == *"23.05"* ]]; then
   gitsvn https://github.com/coolsnowwolf/packages/tree/152022403f0ab2a85063ae1cd9687bd5240fe9b7/net/dnsproxy ${HOME_PATH}/feeds/packages/net/dnsproxy
   gitsvn https://github.com/coolsnowwolf/lede/tree/326599e3d08d7fe1dc084e1c87581cdf5a8e41a6/package/libs/libjson-c ${HOME_PATH}/package/libs/libjson-c
 fi
-if [[ "${REPO_BRANCH}" =~ (main|master) ]]; then
-  gitsvn https://github.com/openwrt/packages/tree/main/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
-fi
+#if [[ "${REPO_BRANCH}" =~ (main|master) ]]; then
+#  gitsvn https://github.com/openwrt/packages/tree/main/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
+#fi
 }
 
 
@@ -401,7 +401,7 @@ if [[ ! "${Default_theme}" == "0" ]] && [[ -n "${Default_theme}" ]]; then
 fi
 
 #修复Rust[host]编译错误
-sed -i 's/llvm\.download-ci-llvm=true/llvm.download-ci-llvm=false/' "${HOME_PATH}/feeds/packages/lang/rust/Makefile"
+#sed -i 's/llvm\.download-ci-llvm=true/llvm.download-ci-llvm=false/' "${HOME_PATH}/feeds/packages/lang/rust/Makefile"
 
 # 更新和安装feeds
 ./scripts/feeds install -a &>/dev/null
