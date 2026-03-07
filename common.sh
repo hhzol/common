@@ -197,6 +197,8 @@ echo "src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2.gi
 echo "src-git kms https://github.com/gaoderby/luci-app-kms;main" >> "${HOME_PATH}/feeds.conf.default"
 
 git clone --depth=1 https://github.com/hhzol/luci-app-usb_printer.git ${HOME_PATH}/package/usb_printer
+git clone --depth=1 https://github.com/sirpdboy/luci-app-netspeedtest ${HOME_PATH}/package/netspeedtest
+git clone --depth=1 https://github.com/sirpdboy/luci-app-wizard ${HOME_PATH}package/luci-app-wizard
 if grep -q "armvirt=y" $MYCONFIG_FILE || grep -q "armsr=y" $MYCONFIG_FILE; then
   git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git ${HOME_PATH}/package/luci-app-amlogic
 fi
