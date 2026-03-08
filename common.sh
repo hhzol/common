@@ -1285,7 +1285,7 @@ elif [[ -n "$route" ]]; then
 else
     store_away="$HOME_PATH/$files_name"
 fi
-
+echo "目标路径: $store_away"
 if [[ "$url" == *"tree"* ]] && [[ -n "$path_after_branch" ]]; then
     if git clone -q --no-checkout "$base_url" "$tmpdir"; then
         cd "$tmpdir"
