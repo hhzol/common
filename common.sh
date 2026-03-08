@@ -378,7 +378,11 @@ function Diy_partsh() {
 TIME y "正在执行：自定义文件"
 cd ${HOME_PATH}
 # 运行自定义文件
-echo "${DIY_PT1_SH}"
+if [ -f "${DIY_PT1_SH}" ]; then
+  echo "文件${DIY_PT1_SH}存在" 
+else
+  echo "文件 ${DIY_PT1_SH}不存在"
+fi
 ${DIY_PT1_SH}
 ./scripts/feeds update -a &>/dev/null
 }
