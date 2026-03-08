@@ -384,6 +384,7 @@ else
   echo "文件 ${DIY_PT1_SH}不存在"
 fi
 ${DIY_PT1_SH}
+echo "自定义执行完成"
 ./scripts/feeds update -a &>/dev/null
 }
 
