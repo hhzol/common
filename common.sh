@@ -378,6 +378,7 @@ function Diy_partsh() {
 TIME y "正在执行：自定义文件"
 cd ${HOME_PATH}
 # 运行自定义文件
+echo "xxxxx"
 ${DIY_PT1_SH}
 ./scripts/feeds update -a &>/dev/null
 }
