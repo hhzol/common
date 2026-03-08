@@ -228,6 +228,7 @@ Diy_three() {
 
 # 第四个自定义函数
 Diy_four() {
+    echo "xxxxxx"
     cp -Rf "${COMPILE_PATH}" "${LINSHI_COMMON}/${FOLDER_NAME}"
     export DIY_PT1_SH="${LINSHI_COMMON}/${FOLDER_NAME}/diy-part.sh"
     export DIY_PT2_SH="${LINSHI_COMMON}/${FOLDER_NAME}/diy2-part.sh"
