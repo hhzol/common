@@ -385,7 +385,9 @@ else
 fi
 ${DIY_PT1_SH}
 echo "自定义执行完成"
+ls ./scripts/feeds
 ./scripts/feeds update -a &>/dev/null
+echo "xxx"
 }
 
 
