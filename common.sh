@@ -238,7 +238,7 @@ rm -rf ${HOME_PATH}/feeds/packages/net/{ovsd,jool,sub-web,dae,onionshare-cli,clo
 
 # 更新golang和node版本
 #gitsvn https://github.com/sbwml/packages_lang_golang ${HOME_PATH}/feeds/packages/lang/golang
-gitsvn https://github.com/sbwml/feeds_packages_lang_node-prebuilt ${HOME_PATH}/feeds/packages/lang/node
+# 2026.03.08 gitsvn https://github.com/sbwml/feeds_packages_lang_node-prebuilt ${HOME_PATH}/feeds/packages/lang/node
 
 # store插件依赖
 #if [[ -d "${HOME_PATH}/feeds/danshui/relevance/nas-packages/network/services" ]] && [[ ! -d "${HOME_PATH}//package/network/services/ddnsto" ]]; then
@@ -255,9 +255,9 @@ bash "$LINSHI_COMMON/Share/tproxy/nft_tproxy.sh"
 #  gitsvn https://github.com/openwrt/packages/tree/main/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
 #fi
 
-if [[ ! -d "${HOME_PATH}/feeds/packages/devel/packr" ]]; then
-  gitsvn https://github.com/281677160/common/tree/main/Share/packr ${HOME_PATH}/feeds/packages/devel/packr
-fi
+# 2026.03.08 if [[ ! -d "${HOME_PATH}/feeds/packages/devel/packr" ]]; then
+#  gitsvn https://github.com/281677160/common/tree/main/Share/packr ${HOME_PATH}/feeds/packages/devel/packr
+#fi
 
 # files大法，设置固件无烦恼
 if [ -d "${BUILD_PATCHES}" ]; then
