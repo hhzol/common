@@ -340,9 +340,9 @@ if [[ "${REPO_BRANCH}" == *"21.02"* ]] || [[ "${REPO_BRANCH}" == *"18.06"* ]] ||
   gitsvn https://github.com/coolsnowwolf/packages/tree/152022403f0ab2a85063ae1cd9687bd5240fe9b7/net/dnsproxy ${HOME_PATH}/feeds/packages/net/dnsproxy
   gitsvn https://github.com/coolsnowwolf/lede/tree/326599e3d08d7fe1dc084e1c87581cdf5a8e41a6/package/libs/libjson-c ${HOME_PATH}/package/libs/libjson-c
 fi
-if [[ "${REPO_BRANCH}" =~ (main|master) ]]; then
-  gitsvn https://github.com/openwrt/packages/tree/master/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
-fi
+#if [[ "${REPO_BRANCH}" =~ (main|master) ]]; then
+#  gitsvn https://github.com/openwrt/packages/tree/master/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
+#fi
 }
 
 
@@ -415,7 +415,8 @@ fi
 # 更新和安装feeds
 ./scripts/feeds install -a &>/dev/null
 ./scripts/feeds install -a
-
+rm -rf feeds/packages/lang/rust
+git clone https://github.com/grandway2025/packages_lang_rust -b 1.85.0 ${HOME_PATH}/feeds/packages/lang/rust
 # 使用自定义配置文件
 [[ -f "$MYCONFIG_FILE" ]] && cp -Rf $MYCONFIG_FILE .config
 }
