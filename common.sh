@@ -415,8 +415,6 @@ fi
 # 更新和安装feeds
 ./scripts/feeds install -a &>/dev/null
 ./scripts/feeds install -a
-rm -rf feeds/packages/lang/rust
-git clone https://github.com/grandway2025/packages_lang_rust -b 1.85.0 ${HOME_PATH}/feeds/packages/lang/rust
 # 使用自定义配置文件
 [[ -f "$MYCONFIG_FILE" ]] && cp -Rf $MYCONFIG_FILE .config
 }
