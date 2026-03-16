@@ -1188,11 +1188,6 @@ sed -i -E '/^\t/! s/^ +//' "${DEFAULT_PATH}"
 
 
 function Diy_firmware() {
-mkdir -p ${FIRMWARE_PATH}
-
-find ${HOME_PATH}/bin/targets/ -type f \
-\( -name "*.img" -o -name "*.bin" -o -name "*.gz" \) \
--exec cp {} ${FIRMWARE_PATH}/ \;
 # 远程更新处理固件
 if [ "${UPDATE_FIRMWARE_ONLINE}" == "true" ]; then
   cd ${HOME_PATH}
