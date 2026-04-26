@@ -412,14 +412,13 @@ fi
 #修复Rust[host]编译错误
 #sed -i 's/llvm\.download-ci-llvm=true/llvm.download-ci-llvm=false/' "${HOME_PATH}/feeds/packages/lang/rust/Makefile"
 
-#修复linux核心6.18 AT_HANDLE_FID错误
+# 修复 linux 6.18 AT_HANDLE_FID 编译错误
 cat > ${HOME_PATH}/package/utils/util-linux/patches/0002-fix-AT_HANDLE_FID.patch <<'EOF'
 --- a/sys-utils/nsenter.c
 +++ b/sys-utils/nsenter.c
-@@
-+#ifndef AT_HANDLE_FID
-+#define AT_HANDLE_FID 0
-+#endif
+@@ -223,7 +223,7 @@
+-                              AT_EMPTY_PATH | AT_HANDLE_FID) == -1)
++                              AT_EMPTY_PATH) == -1)
 EOF
 
 # 更新和安装feeds
