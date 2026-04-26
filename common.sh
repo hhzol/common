@@ -420,6 +420,9 @@ cat > ${HOME_PATH}/package/utils/util-linux/patches/0002-fix-AT_HANDLE_FID.patch
 -                              AT_EMPTY_PATH | AT_HANDLE_FID) == -1)
 +                              AT_EMPTY_PATH) == -1)
 EOF
+
+printf '\n' >> ${HOME_PATH}/package/utils/util-linux/patches/0002-fix-AT_HANDLE_FID.patch
+
 rm -rf ${HOME_PATH}/build_dir/target-*/util-linux-*
 
 # 更新和安装feeds
