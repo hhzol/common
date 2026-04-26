@@ -416,9 +416,15 @@ fi
 cat > ${HOME_PATH}/package/utils/util-linux/patches/0002-fix-AT_HANDLE_FID.patch <<'EOF'
 --- a/sys-utils/nsenter.c
 +++ b/sys-utils/nsenter.c
-@@ -223,7 +223,7 @@
--                              AT_EMPTY_PATH | AT_HANDLE_FID) == -1)
-+                              AT_EMPTY_PATH) == -1)
+@@ -220,8 +220,8 @@ static int fill_nsfs_file_handle(int fd, struct file_handle *handle)
+        if (name_to_handle_at(fd, "",
+                              handle,
+                              &mount_id,
+-                             AT_EMPTY_PATH | AT_HANDLE_FID) == -1)
++                             AT_EMPTY_PATH) == -1)
+                return -1;
+
+        return 0;
 EOF
 
 printf '\n' >> ${HOME_PATH}/package/utils/util-linux/patches/0002-fix-AT_HANDLE_FID.patch
