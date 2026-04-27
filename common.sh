@@ -412,15 +412,10 @@ fi
 #修复Rust[host]编译错误
 #sed -i 's/llvm\.download-ci-llvm=true/llvm.download-ci-llvm=false/' "${HOME_PATH}/feeds/packages/lang/rust/Makefile"
 
-cat > ${HOME_PATH}/package/utils/util-linux/patches/0002-fix-AT_HANDLE_FID.patch <<'EOF'
---- a/sys-utils/nsenter.c
-+++ b/sys-utils/nsenter.c
-@@ -1,3 +1,7 @@
-+#ifndef AT_HANDLE_FID
-+#define AT_HANDLE_FID 0
-+#endif
-+
-EOF
+# fix linux 6.18 AT_HANDLE_FID
+curl -L \
+https://github.com/util-linux/util-linux/commit/5452239f6e69d2d3aaa427d2d2253247cfb7cb7b.patch \
+-o ${HOME_PATH}/package/utils/util-linux/patches/0002-fix-AT_HANDLE_FID.patch
 
 # 更新和安装feeds
 ./scripts/feeds install -a &>/dev/null
@@ -428,7 +423,6 @@ EOF
 # 使用自定义配置文件
 [[ -f "$MYCONFIG_FILE" ]] && cp -Rf $MYCONFIG_FILE .config
 }
-
 
 function Diy_profile() {
 TIME y "正在执行：识别源码编译为何机型"
