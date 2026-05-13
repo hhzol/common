@@ -19,7 +19,7 @@ libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev 
 libreadline-dev libssl-dev libtool llvm lrzsz msmtp ninja-build p7zip p7zip-full patch pkgconf \
 python2 python3 python3-pip python3-cryptography python3-docutils python3-ply python3-pyelftools python3-requests\
 python3-setuptools python3-distutils python3-netifaces qemu-utils rsync scons squashfs-tools subversion swig \
-texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev sccache
+texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
 
 # alist依赖
 apt-get install -y libfuse-dev
@@ -39,6 +39,23 @@ update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-${GCC_VERSION} 60
 update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-${GCC_VERSION} 60
 update-alternatives --config gcc
 update-alternatives --config g++
+
+# 安装 sccache（100%可靠版）
+cd /tmp
+
+SCCACHE_VERSION="0.7.7"
+
+curl -L https://github.com/mozilla/sccache/releases/download/v${SCCACHE_VERSION}/sccache-v${SCCACHE_VERSION}-x86_64-unknown-linux-musl.tar.gz -o sccache.tar.gz
+
+tar -xzf sccache.tar.gz
+
+cp -f sccache-v${SCCACHE_VERSION}-x86_64-unknown-linux-musl/sccache /usr/bin/sccache
+chmod +x /usr/bin/sccache
+
+# 强制检查
+echo "==== sccache check ===="
+which sccache
+sccache --version
 
 cd $TMP_DIR
 # 安装golang
