@@ -40,23 +40,6 @@ update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-${GCC_VERSION} 60
 update-alternatives --config gcc
 update-alternatives --config g++
 
-# 安装 sccache（100%可靠版）
-cd /tmp
-
-SCCACHE_VERSION="0.7.7"
-
-curl -L https://github.com/mozilla/sccache/releases/download/v${SCCACHE_VERSION}/sccache-v${SCCACHE_VERSION}-x86_64-unknown-linux-musl.tar.gz -o sccache.tar.gz
-
-tar -xzf sccache.tar.gz
-
-cp -f sccache-v${SCCACHE_VERSION}-x86_64-unknown-linux-musl/sccache /usr/bin/sccache
-chmod +x /usr/bin/sccache
-
-# 强制检查
-echo "==== sccache check ===="
-which sccache
-sccache --version
-
 cd $TMP_DIR
 # 安装golang
 GO_VERSION="1.24.2"
