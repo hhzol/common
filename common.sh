@@ -198,7 +198,7 @@ echo "src-git kms https://github.com/gaoderby/luci-app-kms;main" >> "${HOME_PATH
 echo "src-git quickfile https://github.com/sbwml/luci-app-quickfile;main" >> "${HOME_PATH}/feeds.conf.default"
 git clone --depth=1 https://github.com/hhzol/luci-app-usb_printer.git ${HOME_PATH}/package/usb_printer
 git clone --depth=1 https://github.com/hhzol/luci-app-unblockneteasemusic.git ${HOME_PATH}/package/luci-app-unblockneteasemusic
-git clone --depth=1 https://github.com/sbwml/luci-app-openlist2 ${HOME_PATH}/package/openlist
+git clone --depth=1 https://github.com/sbwml/luci-app-openlist2.git ${HOME_PATH}/package/openlist
 if grep -q "armvirt=y" $MYCONFIG_FILE || grep -q "armsr=y" $MYCONFIG_FILE; then
   git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git ${HOME_PATH}/package/luci-app-amlogic
 fi
