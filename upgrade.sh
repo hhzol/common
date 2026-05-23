@@ -134,7 +134,7 @@ function Diy_Part2() {
 }
 
 function Diy_Part3() {
-	BIN_PATH="${HOME_PATH}/bin"
+	BIN_PATH="${HOME_PATH}/bin/Firmware"
 	echo "BIN_PATH=${BIN_PATH}" >> ${GITHUB_ENV}
 	[[ ! -d "${BIN_PATH}" ]] && mkdir -p "${BIN_PATH}" || rm -rf "${BIN_PATH}"/*
 	
