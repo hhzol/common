@@ -137,7 +137,7 @@ function Diy_Part3() {
 	BIN_PATH="${HOME_PATH}/bin/Firmware"
 	echo "BIN_PATH=${BIN_PATH}" >> ${GITHUB_ENV}
 	[[ ! -d "${BIN_PATH}" ]] && mkdir -p "${BIN_PATH}" || rm -rf "${BIN_PATH}"/*
-	
+	echo "${FIRMWARE_PATH}"
 	cd "${FIRMWARE_PATH}"
  	if [[ -n "$(ls -1 | grep -Eo '.img')" ]] && [[ -z "$(ls -1 | grep -Eo '.img.gz')" ]]; then
 		gzip -f9n *.img
