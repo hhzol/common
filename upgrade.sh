@@ -146,7 +146,7 @@ function Diy_Part3() {
 	case "${TARGET_BOARD}" in
 	x86)
 		if [[ -n "$(ls -1 | grep -E 'efi')" ]]; then
-			EFI_ZHONGZHUAN="$(ls -1 |grep -Eo ".*combined.*efi.*img.gz" |grep -v ".vm\|.vb\|.vh\|.qco\|ext4\|root\|factory\|kernel")"
+			EFI_ZHONGZHUAN="$(ls -1 |grep -Eo ".*combined-efi.*img.gz" |grep -v ".vm\|.vb\|.vh\|.qco\|ext4\|root\|factory\|kernel")"
 			if [[ -f "${EFI_ZHONGZHUAN}" ]]; then
 		  		EFIMD5="$(md5sum ${EFI_ZHONGZHUAN} |cut -c1-3)$(sha256sum ${EFI_ZHONGZHUAN} |cut -c1-3)"
 		  		cp -Rf "${EFI_ZHONGZHUAN}" "${BIN_PATH}/${AUTOBUILD_FIRMWARE_UEFI}-${EFIMD5}${FIRMWARE_SUFFIX}"
