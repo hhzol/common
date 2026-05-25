@@ -195,8 +195,9 @@ echo "src-git passwall https://github.com/Openwrt-Passwall/openwrt-passwall.git;
 echo "src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2.git;main" >> "${HOME_PATH}/feeds.conf.default"
 #echo "src-git istore https://github.com/linkease/istore;main" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git kms https://github.com/gaoderby/luci-app-kms;main" >> "${HOME_PATH}/feeds.conf.default"
-echo "src-git homeproxy https://github.com/immortalwrt/homeproxy.git;master" >> "${HOME_PATH}/feeds.conf.default"
+#echo "src-git homeproxy https://github.com/immortalwrt/homeproxy.git;master" >> "${HOME_PATH}/feeds.conf.default"
 #echo "src-git quickfile https://github.com/sbwml/luci-app-quickfile.git;main" >> "${HOME_PATH}/feeds.conf.default"
+git clone --depth=1 https://github.com/immortalwrt/homeproxy.git ${HOME_PATH}/package/luci-app-homeproxy
 git clone --depth=1 https://github.com/hhzol/luci-app-usb_printer.git ${HOME_PATH}/package/usb_printer
 git clone --depth=1 https://github.com/hhzol/luci-app-unblockneteasemusic.git ${HOME_PATH}/package/luci-app-unblockneteasemusic
 git clone --depth=1 https://github.com/sbwml/luci-app-openlist2.git ${HOME_PATH}/package/openlist
