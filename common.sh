@@ -228,9 +228,9 @@ cp -Rf "$LINSHI_COMMON/Share/r2s/arm-trusted-firmware-rockchip" "${HOME_PATH}/pa
 rm -rf "${HOME_PATH}/package/boot/uboot-rockchip"
 cp -Rf "$LINSHI_COMMON/Share/r2s/uboot-rockchip" "${HOME_PATH}/package/boot/uboot-rockchip"
 rm -rf "${HOME_PATH}/package/target/linux/rockchip"
-cp -Rf "$LINSHI_COMMON/Share/r2s/rockchip" "${HOME_PATH}/package/target/linux/rockchip"
+cp -Rf "$LINSHI_COMMON/Share/r2s/rockchip" "${HOME_PATH}/target/linux/rockchip"
 ls ${HOME_PATH}/package/boot/arm-trusted-firmware-rockchip/atf-version.mk
-ls ${HOME_PATH}package/boot/uboot-rockchip
+ls ${HOME_PATH}/package/boot/uboot-rockchip
 
 # 更新feeds
 cd ${HOME_PATH}
