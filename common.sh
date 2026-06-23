@@ -223,6 +223,8 @@ variable ZZZ_PATH="$(find "$HOME_PATH/package" -name "*-default-settings" -not -
 [[ -n "${ZZZ_PATH}" ]] && grep -q "openwrt_banner" "${ZZZ_PATH}" && sed -i '/openwrt_banner/d' "${ZZZ_PATH}"
 
 #替换rockchip文件
+rm -rf "${HOME_PATH}/package/boot/arm-trusted-firmware-rockchip"
+cp -Rf "$LINSHI_COMMON/Share/r2s/arm-trusted-firmware-rockchip" "${HOME_PATH}/package/boot/arm-trusted-firmware-rockchip"
 rm -rf "${HOME_PATH}/package/boot/uboot-rockchip"
 cp -Rf "$LINSHI_COMMON/Share/r2s/uboot-rockchip" "${HOME_PATH}/package/boot/uboot-rockchip"
 rm -rf "${HOME_PATH}/package/target/linux/rockchip"
