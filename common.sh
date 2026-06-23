@@ -222,6 +222,10 @@ fi
 variable ZZZ_PATH="$(find "$HOME_PATH/package" -name "*-default-settings" -not -path "A/exclude_dir/*" -print)"
 [[ -n "${ZZZ_PATH}" ]] && grep -q "openwrt_banner" "${ZZZ_PATH}" && sed -i '/openwrt_banner/d' "${ZZZ_PATH}"
 
+#替换rockchip文件
+cp -Rf "$LINSHI_COMMON/Share/r2s/" "${HOME_PATH}/package/auto-scripts"
+
+
 # 更新feeds
 cd ${HOME_PATH}
 if [[ "${BENDI_VERSION}" == "2" ]]; then
