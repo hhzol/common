@@ -431,9 +431,11 @@ fi
 #sed -i 's/llvm\.download-ci-llvm=true/llvm.download-ci-llvm=false/' "${HOME_PATH}/feeds/packages/lang/rust/Makefile"
 
 # fix linux 6.18 AT_HANDLE_FID
+if [[ "${SOURCE_CODE}" == "OFFICIAL" ]]; then
 curl -L \
 https://github.com/util-linux/util-linux/commit/5452239f6e69d2d3aaa427d2d2253247cfb7cb7b.patch \
 -o ${HOME_PATH}/package/utils/util-linux/patches/0002-fix-AT_HANDLE_FID.patch
+fi
 
 # 更新和安装feeds
 ./scripts/feeds install -a &>/dev/null
