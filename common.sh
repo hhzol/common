@@ -251,10 +251,10 @@ rm -rf ${HOME_PATH}/feeds/packages/net/{ovsd,jool,sub-web,dae,onionshare-cli,clo
 #gitsvn https://github.com/sbwml/packages_lang_golang ${HOME_PATH}/feeds/packages/lang/golang
 #gitsvn https://github.com/sbwml/feeds_packages_lang_node-prebuilt ${HOME_PATH}/feeds/packages/lang/node
 # remove the default Node.js feed
-rm -rf ${HOME_PATH}/feeds/packages/lang/node
+#rm -rf ${HOME_PATH}/feeds/packages/lang/node
 
 # clone the prebuilt Node.js feed (packages-25.12 branch)
-git clone https://github.com/sbwml/feeds_packages_lang_node -b packages-25.12 ${HOME_PATH}/feeds/packages/lang/node
+#git clone https://github.com/sbwml/feeds_packages_lang_node -b packages-25.12 ${HOME_PATH}/feeds/packages/lang/node
 
 # store插件依赖
 #if [[ -d "${HOME_PATH}/feeds/danshui/relevance/nas-packages/network/services" ]] && [[ ! -d "${HOME_PATH}//package/network/services/ddnsto" ]]; then
