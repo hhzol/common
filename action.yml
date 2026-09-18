@@ -31,17 +31,27 @@ runs:
 #    - name: SSH远程连接（make menuconfig）
 #      if: env.SSH_ACTION == 'true'
 #      uses: sa3lej/action-tmtv@v1
-      
+          
     - name: Test tmtv new-session
       shell: bash
       run: |
         set -e
+    
         echo "===== install tmtv ====="
         curl -fsSL https://tmtv.se/install.sh | sh
+    
         echo "===== tmtv version ====="
         tmtv -V
+    
+        echo "===== create tmtv config ====="
+        cat > "$HOME/.tmtv.conf" << EOF
+        set -g tmtv-server-host "tmtv.se"
+        set -g tmtv-server-port 22
+        EOF
+    
         echo "===== tmtv config ====="
         cat "$HOME/.tmtv.conf"
+    
         echo "===== create session ====="
         tmtv -f "$HOME/.tmtv.conf" new-session -s test
         
