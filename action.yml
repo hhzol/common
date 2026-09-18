@@ -27,6 +27,19 @@ runs:
       run: |
         cd $HOME_PATH
         echo -e "\n\033[33m正在执行：远程make menuconfig\033[0m"
+    
+    - name: 测试 tmate 公共 DNS
+      if: env.SSH_ACTION == 'true'
+      shell: bash
+      run: |
+        echo "=== Cloudflare DNS ==="
+        nslookup ssh.tmate.io 1.1.1.1 || true
+    
+        echo "=== Google DNS ==="
+        nslookup ssh.tmate.io 8.8.8.8 || true
+    
+        echo "=== Quad9 DNS ==="
+        nslookup ssh.tmate.io 9.9.9.9 || true
         
     - name: 检查 tmate 网络
       if: env.SSH_ACTION == 'true'
