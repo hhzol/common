@@ -32,19 +32,17 @@ runs:
 #      if: env.SSH_ACTION == 'true'
 #      uses: sa3lej/action-tmtv@v1
 
-    - name: Test tmtv
+    - name: Test tmtv new-session
       shell: bash
       run: |
-        curl -fsSL https://tmtv.se/install.sh | bash
-    
         echo "===== tmtv version ====="
-        tmtv version
+        tmtv -V
     
         echo "===== tmtv help ====="
         tmtv --help
     
         echo "===== create session ====="
-        tmtv -d new-session
+        tmtv -f "$HOME/.tmtv.conf" new-session -s test
         
     - name: 生成配置文件和提取机型
       shell: bash
