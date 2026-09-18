@@ -27,10 +27,26 @@ runs:
       run: |
         cd $HOME_PATH
         echo -e "\n\033[33m正在执行：远程make menuconfig\033[0m"
+    
+    - name: 检查 tmate 环境
+      if: env.SSH_ACTION == 'true'
+      shell: bash
+      run: |
+        echo "=== before tmate ==="
+        command -v ssh
+        ssh -V
+        command -v xz
+        xz --version
+        echo "=== network ==="
+        getent hosts ssh.tmate.io || true
+        echo "=== done ==="
 
     - name: SSH远程连接（make menuconfig）
       if: env.SSH_ACTION == 'true'
       uses: mxschmitt/action-tmate@v3
+      with:
+        install-dependencies: false
+        connect-timeout-seconds: 60
 
     - name: 生成配置文件和提取机型
       shell: bash
