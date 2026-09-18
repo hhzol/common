@@ -28,51 +28,9 @@ runs:
         cd $HOME_PATH
         echo -e "\n\033[33m正在执行：远程make menuconfig\033[0m"
     
-    - name: 测试 tmate 公共 DNS
-      if: env.SSH_ACTION == 'true'
-      shell: bash
-      run: |
-        echo "=== Cloudflare DNS ==="
-        nslookup ssh.tmate.io 1.1.1.1 || true
-    
-        echo "=== Google DNS ==="
-        nslookup ssh.tmate.io 8.8.8.8 || true
-    
-        echo "=== Quad9 DNS ==="
-        nslookup ssh.tmate.io 9.9.9.9 || true
-        
-    - name: 检查 tmate 网络
-      if: env.SSH_ACTION == 'true'
-      shell: bash
-      run: |
-        echo "=== DNS ==="
-        cat /etc/resolv.conf
-    
-        echo "--- getent hosts ---"
-        getent hosts ssh.tmate.io || true
-    
-        echo "--- getent ahosts ---"
-        getent ahosts ssh.tmate.io || true
-    
-        echo "=== nslookup ==="
-        nslookup ssh.tmate.io || true
-    
-        echo "=== curl IPv4 ==="
-        curl -4 -Iv --connect-timeout 10 https://ssh.tmate.io 2>&1 || true
-    
-        echo "=== curl IPv6 ==="
-        curl -6 -Iv --connect-timeout 10 https://ssh.tmate.io 2>&1 || true
-    
-        echo "=== TCP 22 ==="
-        timeout 10 bash -c '</dev/tcp/ssh.tmate.io/22' \
-          && echo "TCP 22 OK" \
-          || echo "TCP 22 FAILED"
-    
-        echo "=== done ==="
-
     - name: SSH远程连接（make menuconfig）
       if: env.SSH_ACTION == 'true'
-      uses: mxschmitt/action-tmate@v3
+      uses: hhzol/debugger-action@main
 
     - name: 生成配置文件和提取机型
       shell: bash
