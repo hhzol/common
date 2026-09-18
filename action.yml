@@ -43,7 +43,7 @@ runs:
 
     - name: SSH远程连接（make menuconfig）
       if: env.SSH_ACTION == 'true'
-      uses: mxschmitt/action-tmate@v3
+      uses: hhzol/debugger-action@main
       with:
         install-dependencies: false
         connect-timeout-seconds: 60
