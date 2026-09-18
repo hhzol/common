@@ -31,52 +31,20 @@ runs:
 #    - name: SSH远程连接（make menuconfig）
 #      if: env.SSH_ACTION == 'true'
 #      uses: sa3lej/action-tmtv@v1
-    - name: Test tmtv new-session
+    - name: Debug tmtv info
       shell: bash
       run: |
-        set -e
+        echo "===== help ====="
+        tmtv --help
     
-        echo "===== install tmtv ====="
-        curl -fsSL https://tmtv.se/install.sh | sh
+        echo "===== sessions ====="
+        tmtv list-sessions
     
-        echo "===== tmtv version ====="
-        tmtv -V
+        echo "===== files ====="
+        find /tmp -maxdepth 3 | grep tmtv || true
     
-        echo "===== create tmtv config ====="
-        cat > "$HOME/.tmtv.conf" << EOF
-        set -g tmtv-server-host "tmtv.se"
-        set -g tmtv-server-port 22
-        EOF
-    
-        echo "===== tmtv config ====="
-        cat "$HOME/.tmtv.conf"
-    
-        echo "===== create detached session ====="
-    
-        set +e
-        OUTPUT=$(tmtv -f "$HOME/.tmtv.conf" new-session -d -s test 2>&1)
-        RC=$?
-        set -e
-    
-        echo "===== tmtv exit code ====="
-        echo "$RC"
-    
-        echo "===== tmtv output ====="
-        printf '%s\n' "$OUTPUT"
-    
-        echo "===== tmtv sessions ====="
-        tmtv -f "$HOME/.tmtv.conf" list-sessions 2>&1 || true
-    
-        echo "===== tmtv process ====="
-        ps aux | grep '[t]mtv' || true
-    
-        echo "===== tmux sessions ====="
-        tmux list-sessions 2>&1 || true
-    
-        if [ "$RC" -ne 0 ]; then
-            echo "::error::tmtv new-session failed"
-            exit "$RC"
-        fi
+        echo "===== home ====="
+        find ~/. -maxdepth 3 | grep tmtv || true
         
     - name: 生成配置文件和提取机型
       shell: bash
