@@ -72,7 +72,7 @@ runs:
 
     - name: SSH远程连接（make menuconfig）
       if: env.SSH_ACTION == 'true'
-      uses: hhzol/debugger-action@main
+      uses: mxschmitt/action-tmate@v3
 
     - name: 生成配置文件和提取机型
       shell: bash
