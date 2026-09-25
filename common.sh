@@ -311,10 +311,10 @@ elif [[ -f "${HOME_PATH}/target/linux/armvirt/Makefile" ]]; then
 fi
 
 # sing-box版本修改
-if [[ -f "${HOME_PATH}/feeds/packages/net/sing-box/Makefile" ]]; then
-  sed -i 's/^PKG_VERSION:=.*/PKG_VERSION:=1.12.22/' \
-    "${HOME_PATH}/feeds/packages/net/sing-box/Makefile"
-fi
+#if [[ -f "${HOME_PATH}/feeds/packages/net/sing-box/Makefile" ]]; then
+#  sed -i 's/^PKG_VERSION:=.*/PKG_VERSION:=1.12.22/' \
+#    "${HOME_PATH}/feeds/packages/net/sing-box/Makefile"
+#fi
 
 # 给固件保留配置更新固件的保留项目
 cat >> "${KEEPD_PATH}" <<-EOF
