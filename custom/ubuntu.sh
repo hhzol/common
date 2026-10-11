@@ -21,17 +21,6 @@ python3 python3-pip python3-cryptography python3-docutils python3-ply python3-py
 python3-setuptools python3-distutils python3-netifaces qemu-utils rsync scons squashfs-tools subversion swig \
 texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
 
-echo "===== System Python ====="
-python3 -c "import elftools; print(elftools.__file__)"
-
-echo "===== OpenWrt Host Python ====="
-if [ -x staging_dir/host/bin/python3 ]; then
-    staging_dir/host/bin/python3 -c \
-        "import elftools; print(elftools.__file__)" || true
-else
-    echo "OpenWrt host python3 does not exist yet"
-fi
-
 # alist依赖
 apt-get install -y libfuse-dev
 
