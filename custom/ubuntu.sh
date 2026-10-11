@@ -21,6 +21,8 @@ python3 python3-pip python3-cryptography python3-docutils python3-ply python3-py
 python3-setuptools python3-distutils python3-netifaces qemu-utils rsync scons squashfs-tools subversion swig \
 texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
 
+pip3 install --no-cache-dir pyelftools
+
 # alist依赖
 apt-get install -y libfuse-dev
 
