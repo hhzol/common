@@ -45,19 +45,24 @@ runs:
         git status
         git add .
         git commit -m "${BANBEN_SHUOMING}"
+        
+        # 配置 Git 远程 URL（不再把 Token 写在 URL 里，而是通过标准凭据传递）
+        git remote set-url origin "https://github.com/${GIT_REPOSITORY}.git"
+        
         PUSH_SUCCESS=false
         RETRY_COUNT=0
         MAX_RETRIES=5
         while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
           RETRY_COUNT=$((RETRY_COUNT+1))
           echo "尝试推送 (${RETRY_COUNT}/${MAX_RETRIES})..."
-          # 每次重试前重置HEAD并重新添加文件
           if [ $RETRY_COUNT -gt 1 ]; then
              echo "重置HEAD并重新添加文件..."
              git reset --hard HEAD
              git add .
           fi
-          if git push --force "https://${REPO_TOKEN}@github.com/${GIT_REPOSITORY}" HEAD:${GIT_REFNAME}; then
+          
+          # 使用标准的 HTTPS 配合环境变量中的 REPO_TOKEN 进行安全的 Header 认证
+          if git -c http.extraHeader="Authorization: basic $(echo -n "x-access-token:${REPO_TOKEN}" | base64)" push --force origin HEAD:${GIT_REFNAME}; then
              PUSH_SUCCESS=true
              break
           else
