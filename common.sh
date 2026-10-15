@@ -188,7 +188,7 @@ fi
 [[ "${OpenClash_branch}" == "1" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "2" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "${HOME_PATH}/feeds.conf.default"
 
-echo "src-git momo https://github.com/nikkinikki-org/OpenWrt-momo.git;main" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git momo https://github.com/hhzol/OpenWrt-momo.git;main" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki.git;main" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git passwall https://github.com/Openwrt-Passwall/openwrt-passwall.git;main" >> "${HOME_PATH}/feeds.conf.default"
