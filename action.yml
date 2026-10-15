@@ -8,11 +8,17 @@ runs:
       shell: bash
       run: |
         cd ${GITHUB_WORKSPACE}
+        
+        # 配置 Git 凭据（使用 insteadOf 自动注入 Token，解决明文 URL 鉴权失效问题）
+        git config --global url."https://${REPO_TOKEN}:x-access-token@github.com/".insteadOf "https://github.com/"
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
         tmpdir="$(mktemp -d)"
         UPLOAD="$GITHUB_WORKSPACE/${tmpdir#*.}"
 
-        # 克隆仓库
-        git clone --depth=1 -b ${GIT_REFNAME} https://user:${REPO_TOKEN}@github.com/${GIT_REPOSITORY}.git $UPLOAD
+        # 克隆仓库（改用标准的 HTTPS URL，会自动应用上面配置的 Token）
+        git clone --depth=1 -b ${GIT_REFNAME} https://github.com/${GIT_REPOSITORY}.git $UPLOAD
         cd $UPLOAD
         git reset --hard HEAD
         cd ${GITHUB_WORKSPACE}
@@ -51,21 +57,19 @@ runs:
         while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
           RETRY_COUNT=$((RETRY_COUNT+1))
           echo "尝试推送 (${RETRY_COUNT}/${MAX_RETRIES})..."
-          # 每次重试前重置HEAD并重新添加文件
           if [ $RETRY_COUNT -gt 1 ]; then
              echo "重置HEAD并重新添加文件..."
              git reset --hard HEAD
              git add .
           fi
-          if git push --force "https://${REPO_TOKEN}@github.com/${GIT_REPOSITORY}" HEAD:${GIT_REFNAME}; then
+          # 直接使用标准远程推送，凭据已由 insteadOf 接管
+          if git push --force origin HEAD:${GIT_REFNAME}; then
              PUSH_SUCCESS=true
              break
           else
              echo "推送失败，尝试恢复..."
-             # 清除可能损坏的缓存
              git gc --prune=now
              git remote prune origin
-             # 增加随机延迟，避免持续峰值请求
              DELAY=$((RANDOM % 5 + 2))
              echo "等待${DELAY}秒后重试..."
              sleep $DELAY
