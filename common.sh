@@ -233,8 +233,8 @@ variable ZZZ_PATH="$(find "$HOME_PATH/package" -name "*-default-settings" -not -
 #拷贝onecloud驱动
 git clone --depth=1 --branch master --filter=blob:none --sparse https://github.com/rmoyulong/OneCloud_OpenWrt.git /tmp/OneCloud
 cd /tmp/OneCloud
-git sparse-checkout set lede6.18/target/linux/amlogic
-cp -rf lede6.18/target/linux/amlogic/. ${HOME_PATH}/target/linux/amlogic/
+git sparse-checkout set lede6.6/target/linux
+cp -rf lede6.6/target/linux/. ${HOME_PATH}/target/linux/
 
 # 更新feeds
 cd ${HOME_PATH}
