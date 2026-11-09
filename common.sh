@@ -231,10 +231,10 @@ variable ZZZ_PATH="$(find "$HOME_PATH/package" -name "*-default-settings" -not -
 #ls ${HOME_PATH}/package/boot/uboot-rockchip
 
 #拷贝onecloud驱动
-#git clone --depth=1 --branch master --filter=blob:none --sparse https://github.com/neomikanagi/onecloud-openwrt.git /tmp/OneCloud
-#cd /tmp/OneCloud
-#git sparse-checkout set target/linux
-#cp -rf target/linux/. ${HOME_PATH}/target/linux/
+git clone --depth=1 --branch lienol-2512 --filter=blob:none --sparse https://github.com/lxhao61/OneCloud-OpenWrt.git /tmp/OneCloud
+cd /tmp/OneCloud
+git sparse-checkout set target/linux
+cp -rf target/linux/. ${HOME_PATH}/target/linux/
 
 # 更新feeds
 cd ${HOME_PATH}
