@@ -256,7 +256,7 @@ rm -rf ${HOME_PATH}/feeds/packages/net/{ovsd,jool,sub-web,dae,onionshare-cli,clo
 #gitsvn https://github.com/sbwml/feeds_packages_lang_node-prebuilt ${HOME_PATH}/feeds/packages/lang/node
 
 #回退pppd到2.5.2
-git checkout 381f6624cfb5a1beb763cb09967cb931bcd98427 -- ${HOME_PATH}/package/network/services/ppp
+#git checkout 381f6624cfb5a1beb763cb09967cb931bcd98427 -- ${HOME_PATH}/package/network/services/ppp
 
 if [[ "${SOURCE_CODE}" == "OFFICIAL" ]]; then
   # remove the default Node.js feed
