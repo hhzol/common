@@ -236,11 +236,6 @@ if [[ "${CONFIG_FILE}" == "onecloud" ]]; then
   cd /tmp/OneCloud
   git sparse-checkout set target/linux
   cp -rf target/linux/. ${HOME_PATH}/target/linux/
-  
-  # remove the default Node.js feed
-  rm -rf feeds/packages/lang/node
-  # clone the prebuilt Node.js feed (packages-25.12 branch)
-  git clone https://github.com/sbwml/feeds_packages_lang_node -b packages-25.12 ${HOME_PATH}/feeds/packages/lang/node
 fi
 
 # 更新feeds
