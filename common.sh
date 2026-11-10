@@ -236,6 +236,12 @@ cd /tmp/OneCloud
 git sparse-checkout set target/linux
 cp -rf target/linux/. ${HOME_PATH}/target/linux/
 
+# remove the default Node.js feed
+rm -rf feeds/packages/lang/node
+# clone the prebuilt Node.js feed (packages-25.12 branch)
+git clone https://github.com/sbwml/feeds_packages_lang_node -b packages-25.12 ${HOME_PATH}/feeds/packages/lang/node
+
+
 # 更新feeds
 cd ${HOME_PATH}
 if [[ "${BENDI_VERSION}" == "2" ]]; then
@@ -254,9 +260,6 @@ rm -rf ${HOME_PATH}/feeds/packages/net/{ovsd,jool,sub-web,dae,onionshare-cli,clo
 # 更新golang和node版本
 #gitsvn https://github.com/sbwml/packages_lang_golang ${HOME_PATH}/feeds/packages/lang/golang
 #gitsvn https://github.com/sbwml/feeds_packages_lang_node-prebuilt ${HOME_PATH}/feeds/packages/lang/node
-
-#回退pppd到2.5.2
-#git checkout 381f6624cfb5a1beb763cb09967cb931bcd98427 -- ${HOME_PATH}/package/network/services/ppp
 
 if [[ "${SOURCE_CODE}" == "OFFICIAL" ]]; then
   # remove the default Node.js feed
