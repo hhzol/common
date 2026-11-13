@@ -327,9 +327,6 @@ cat >> "${KEEPD_PATH}" <<-EOF
 /etc/config/AdGuardHome.yaml
 /www/luci-static/argon/background
 /etc/smartdns/custom.conf
-/etc/opip.sh
-/etc/nasip.sh
-/etc/nas1ip.sh
 EOF
 }
 
