@@ -264,24 +264,8 @@ if [[ "${SOURCE_CODE}" == "OFFICIAL" && "${CONFIG_FILE}" != "onecloud" ]]; then
   git clone https://github.com/sbwml/feeds_packages_lang_node -b packages-25.12 ${HOME_PATH}/feeds/packages/lang/node
 fi
 
-# store插件依赖
-#if [[ -d "${HOME_PATH}/feeds/danshui/relevance/nas-packages/network/services" ]] && [[ ! -d "${HOME_PATH}//package/network/services/ddnsto" ]]; then
-#  mv ${HOME_PATH}/feeds/danshui/relevance/nas-packages/network/services/* ${HOME_PATH}/package/network/services
-#fi
-#if [[ -d "${HOME_PATH}/feeds/danshui/relevance/nas-packages/multimedia/ffmpeg-remux" ]] && [[ ! -d "${HOME_PATH}/feeds/packages/multimedia/ffmpeg-remux" ]]; then
-#  mv ${HOME_PATH}/feeds/danshui/relevance/nas-packages/multimedia/ffmpeg-remux ${HOME_PATH}/feeds/packages/multimedia/ffmpeg-remux
-#fi
-
 # tproxy补丁
 bash "$LINSHI_COMMON/Share/tproxy/nft_tproxy.sh"
-
-#if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
-#  gitsvn https://github.com/openwrt/packages/tree/main/lang/rust ${HOME_PATH}/feeds/packages/lang/rust
-#fi
-
-# 2026.03.08 if [[ ! -d "${HOME_PATH}/feeds/packages/devel/packr" ]]; then
-#  gitsvn https://github.com/281677160/common/tree/main/Share/packr ${HOME_PATH}/feeds/packages/devel/packr
-#fi
 
 # files大法，设置固件无烦恼
 if [ -d "${BUILD_PATCHES}" ]; then
@@ -315,12 +299,6 @@ if [[ -f "${HOME_PATH}/target/linux/armsr/Makefile" ]]; then
 elif [[ -f "${HOME_PATH}/target/linux/armvirt/Makefile" ]]; then
   sed -i "s?FEATURES+=.*?FEATURES+=targz?g" ${HOME_PATH}/target/linux/armvirt/Makefile
 fi
-
-# sing-box版本修改
-#if [[ -f "${HOME_PATH}/feeds/packages/net/sing-box/Makefile" ]]; then
-#  sed -i 's/^PKG_VERSION:=.*/PKG_VERSION:=1.12.22/' \
-#    "${HOME_PATH}/feeds/packages/net/sing-box/Makefile"
-#fi
 
 # 给固件保留配置更新固件的保留项目
 cat >> "${KEEPD_PATH}" <<-EOF
