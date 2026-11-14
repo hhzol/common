@@ -220,16 +220,6 @@ fi
 variable ZZZ_PATH="$(find "$HOME_PATH/package" -name "*-default-settings" -not -path "A/exclude_dir/*" -print)"
 [[ -n "${ZZZ_PATH}" ]] && grep -q "openwrt_banner" "${ZZZ_PATH}" && sed -i '/openwrt_banner/d' "${ZZZ_PATH}"
 
-#替换rockchip文件
-#rm -rf "${HOME_PATH}/package/boot/arm-trusted-firmware-rockchip"
-#cp -Rf "$LINSHI_COMMON/Share/r2s/arm-trusted-firmware-rockchip" "${HOME_PATH}/package/boot/arm-trusted-firmware-rockchip"
-#rm -rf "${HOME_PATH}/package/boot/uboot-rockchip"
-#cp -Rf "$LINSHI_COMMON/Share/r2s/uboot-rockchip" "${HOME_PATH}/package/boot/uboot-rockchip"
-#rm -rf "${HOME_PATH}/package/target/linux/rockchip"
-#cp -Rf "$LINSHI_COMMON/Share/r2s/rockchip" "${HOME_PATH}/target/linux/rockchip"
-#ls ${HOME_PATH}/package/boot/arm-trusted-firmware-rockchip/atf-version.mk
-#ls ${HOME_PATH}/package/boot/uboot-rockchip
-
 if [[ "${CONFIG_FILE}" == "onecloud" ]]; then
   #拷贝onecloud驱动
   git clone --depth=1 --branch immwrt-2512 --filter=blob:none --sparse https://github.com/lxhao61/OneCloud-OpenWrt.git /tmp/OneCloud
